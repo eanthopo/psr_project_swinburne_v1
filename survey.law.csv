@@ -8,8 +8,8 @@ fast_gpps , the FAST GPPS Survey
 fast , the FAST Survey
 fast_mb , the FAST 19-beam L-Band survey
 fast_uwb , the FAST UWB Survey
-fermi , the searches of unidentified Fermi gamma-ray sources
-FermiAssoc , the searches of unidentified Fermi gamma-ray sources
+fermi , the Fermi unidentified gamma-ray sources searches
+FermiAssoc , the Fermi unidentified gamma-ray sources searches
 FermiBlind , the Fermi Gamma-ray Observatory blind survey
 gbncc , the Green Bank North Celestial Cap survey
 gb1 , the Green Bank Northern Hemisphere survey
@@ -28,7 +28,7 @@ lotaas , the LOFAR Tied Array All-sky Survey
 mol1 , the 1st Molonglo survey
 mol2 , the 2nd Molonglo Survey
 meerkat_trapum , the MeerKAT TRAPUM survey
-misc , several minor surveys
+misc , a minor survey
 palfa , the Arecibo Multibeam Survey
 pksmb , the Parkes multibeam pulsar survey
 pkshl , the Parkes high-latitude multibeam pulsar survey

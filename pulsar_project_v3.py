@@ -11,15 +11,15 @@ import pandas as pd
 class Gate:
     def init_gate(self, filename, counter: int):
         row_count, column_count = filename.shape
-        lower_bound = float(filename.iloc[counter,0])
-        upper_bound = float(filename.iloc[counter,1])
-        g_type = str(filename.iloc[counter,2])
-        g_format = int(filename.iloc[counter,3])
-        g_syntax = str(filename.iloc[counter,4])
-        g_prefix = str(filename.iloc[counter,5])
-        g_unit = str(filename.iloc[counter,6])
-        g_factor = float(filename.iloc[counter,7])
-        g_scientific = str(filename.iloc[counter,8])
+        lower_bound = float(filename.iloc[counter,0]) # AKA the lower gate, or the least value that is required to pass into a specific gate.
+        upper_bound = float(filename.iloc[counter,1]) # AKA the upper gate, or the greatest value that something can be to pass into specific gate.
+        g_type = str(filename.iloc[counter,2]) # AKA the descriptor usually containing adjectives, e.g "extremely young pulsar"
+        g_format = int(filename.iloc[counter,3]) # # The number of decimal places the output is formatted in.
+        g_syntax = str(filename.iloc[counter,4]) # Usually comes after g_type. Is a descriptor of what the specific value is, e.g "with an age of"
+        g_prefix = str(filename.iloc[counter,5]) # Comes before g_type, is usually "a" or "an" depending on whether g_type begins with a vowel or consonant.
+        g_unit = str(filename.iloc[counter,6]) # Unit for specific value. If left blank, an extra space will result, however this has been taken care of in laws_to_str final "if else" statement.
+        g_factor = float(filename.iloc[counter,7]) # The number that the value will be multplied by. Leave a value of 1 if you do not want the value changed.
+        g_scientific = str(filename.iloc[counter,8]) # Can only be 3 things: "f", "E", or "i", without the quotes. f = float, E = scientific notation, and i = integer, or no decimal places.
         ngate = [lower_bound,upper_bound,g_type,g_format,g_syntax,g_prefix,g_unit,g_factor,g_scientific]
         return ngate
 
@@ -30,7 +30,13 @@ class Gate:
         sgate = [s_survey_str,s_survey_name]
         return sgate
     
-    # def init_xlsx_gate(self, filename, counter: int):
+    # This class creates a gate specifically for dec, because, like survey, it is unique.
+    def init_dec_gate(self, filename, counter: int):
+        dec_lower_bound = str(filename.iloc[counter, 0])
+        dec_upper_bound = str(filename.iloc[counter,1])
+        dec_direction = str(filename.iloc[counter,2])
+        dgate = [dec_lower_bound,dec_upper_bound,dec_direction]
+        return dgate
         
         
     
@@ -45,14 +51,20 @@ class Gate:
             row_count, column_count = law_name.shape
             n_gate = []
             s_gate = []
+            d_gate = []
             if 'survey.law.csv' == str(law_type):
                 for i in range(row_count):
                     gate = g.init_survey_gate(law_name, i)
                     s_gate.append(gate)
                 return s_gate
-            else:
+            elif 'dec.law.csv' == str(law_type):
                 for j in range(row_count):
-                    gate = g.init_gate(law_name, j)
+                    gate = g.init_dec_gate(law_name, j)
+                    d_gate.append(gate)
+                return d_gate
+            else:
+                for k in range(row_count):
+                    gate = g.init_gate(law_name, k)
                     n_gate.append(gate)
                 return n_gate
         
@@ -60,7 +72,7 @@ class Gate:
         # This function is specifically for the surveys. It reads in the surveys from df that and 
         # are initialized in init_survey_gate and converts them into lists that are then 
         # converted to strings from survey.law.csv.
-        def survey_law(self, survey_load, survey_num: str):
+        def survey_law(self, survey_load, survey_type, survey_num: str):
             row_count, column_count = survey_load.shape
             s_law = l.load(survey_load, survey_file)
             survey = str(survey_num).strip()
@@ -74,40 +86,198 @@ class Gate:
                             survey_str1 = str(law[0]).strip()
                             survey_name1 = str(law[1])
                             if survey_str1 == first_survey:
-                                final_str = str(survey_name1)
+                                if 'normal' == survey_type:
+                                    final_str = str(survey_name1)
+                                elif 'name' == survey_type:
+                                    final_str = first_survey
                     else:
                         for law in s_law:
                             survey_str2 = str(law[0]).strip()
                             survey_name2 = str(law[1])
                             if survey_str2 == survey:
-                                final_str = str(survey_name2)
-                         
+                                if 'normal' == survey_type:
+                                    final_str = str(survey_name2)
+                                elif 'name' == survey_type:
+                                    final_str = survey
                 else:
                     pass
             return final_str
         
         
+        # Law that converts dec info to str. Dec info is found in PSR name, e.g J0437-4715, as + or -.
+        # Has a function because a law is not necessary. The sentence formatting is at the bottom of the file in an if statement.
+        def dec_law(self, dec_load, dec_num):
+            row_count, column_count = dec_load.shape
+            d_law = l.load(dec_load, dec_file)
+            dec = str(dec_num).strip()
+            final_str = 'None'
+            if '*' not in str(dec):
+                for n in range(row_count):
+                    for law in d_law:
+                        lower_bound = float(law[0])
+                        upper_bound = float(law[1])
+                        hemisphere = str(law[2]).strip()
+                        if '+' in dec:
+                            first_plus = dec.index('+')
+                            degree = str(dec[first_plus+1:]).strip()
+                            degree = degree[:2]
+                            final_str = 'Northern Hemisphere'
+                        elif '-' in dec:
+                            first_minus = dec.index('-')
+                            degree = '-' + str(dec[first_minus+1:]).strip()
+                            degree = degree[:2]
+                            final_str = 'Southern Hemisphere'
+                        # if lower_bound <= float(degree) < upper_bound:
+                        #     final_str = hemisphere
+            return final_str
+                    
+        
+        
+        # Converts assoc str to descriptor. Does not have a law because data-type is unique.
+        # Breaks the data into lists, then converts data to str depending on data-type. Then, appended to a final str.
+        # Does not work for every case, which is why there are some .replace functs at the bottom of file.
+        # But it mostly works! And that's nice. Also, final output is of truncated type, aka one/two sentence descriptor max.
+        def assoc_to_str(self, df_file, counter: int):
+            assoc_dict = {"EXGAL": "an extragalactic pulsar", 
+                          "SMC": " located in the Small Magellanic Cloud.", 
+                          "XRS": "an associated x-ray source",
+                          "GRS": "an associated gamma-ray source",
+                          "SNR": "a supernova remnant",
+                          "GC": "located in the globular cluster",
+                          "PWN": " located in the pulsar wind nebula",
+                          "LMC": " located in the Large Magellanic Cloud.",
+                          "OPT": "the optical counterpart"
+                         }
+            assoc = str(assoc_list[i]).strip()
+            assoc_str_final = ''
+            assoc_str = ''
+            assoc_str_temp = ''
+            assoc_str_temp2 = ''
+            assoc_str2 = ''
+            count = 0
+            count2 = 0
+            exgal_flag = False
+            if '*' not in assoc:
+                if ',' in assoc:
+                    assoc_split = assoc.split(',')
+                    for comma_split in assoc_split:
+                        count += 1
+                        if ':' in comma_split:
+                            colon_split = comma_split.split(':')
+                            for item in colon_split:
+                                item = str(item).strip()
+                                if item in assoc_dict and exgal_flag == True:
+                                    assoc_str_temp += assoc_dict[item]
+                                elif item in assoc_dict and 'EXGAL' == item:
+                                    assoc_str_temp = assoc_dict[item]
+                                    exgal_flag = True
+                                elif item in assoc_dict:
+                                    if count < len(assoc_split) and count != 1:
+                                        assoc_str_temp += ' and '
+                                    if 'with' in assoc_str_temp or 'and' in assoc_str_temp:
+                                        assoc_str_temp = assoc_dict[item]
+                                    else:
+                                        assoc_str_temp += assoc_dict[item]
+                                elif item not in assoc_dict and '[' in item and len(item) > 9:
+                                    bracket = item.index('[')
+                                    new_item = item[:bracket]
+                                    assoc_str_temp += ' ' + '(' + str(new_item) + ')'
+                                    if count < len(assoc_split)-1:
+                                        assoc_str_temp += ', '
+                                    elif count < len(assoc_split):
+                                        assoc_str_temp += ' and '
+                                    else:
+                                        assoc_str_temp += '.'
+                                elif item not in assoc_dict and '[' in item:
+                                    assoc_str_temp = assoc_str_temp.replace('the', 'an')
+                                    if count < len(assoc_split)-1:
+                                        assoc_str_temp += ', '
+                                    elif count < len(assoc_split):
+                                        assoc_str_temp += ' and '
+                                    else:
+                                        assoc_str_temp += '.'
+                                elif item not in assoc_dict:
+                                    if count < len(colon_split):
+                                        assoc_str_temp += ' with'
+                                    assoc_str_temp += ' ' + '(' + str(item) + ')'
+                                    if count == len(assoc_split):
+                                        assoc_str_temp += '.'
+                                assoc_str = assoc_str_temp
+                        assoc_str_final += assoc_str
+                elif ':' in assoc:
+                    colon_split2 = assoc.split(':')
+                    for item in colon_split2:
+                        count2 += 1
+                        item = str(item).strip()
+                        if item in assoc_dict and exgal_flag == True:
+                            assoc_str_temp2 += assoc_dict[item]
+                        elif item in assoc_dict and 'EXGAL' == item:
+                            assoc_str_temp2 = assoc_dict[item]
+                            exgal_flag = True
+                        elif item in assoc_dict:
+                            assoc_str_temp2 = ' and has ' + assoc_dict[item]
+                        elif item not in assoc_dict and '[' in item and len(item) > 9:
+                            bracket = item.index('[')
+                            new_item = item[:bracket]
+                            assoc_str_temp2 += ' ' + '(' + str(new_item) + ')'
+                            if count2 < len(colon_split2):
+                                assoc_str_temp2 += ' and has '
+                            else:
+                                assoc_str_temp2 += '. '
+                        elif item not in assoc_dict and '[' in item:
+                            assoc_str_temp2 = assoc_str_temp2.replace('the', 'an')
+                        elif item not in assoc_dict:
+                            assoc_str_temp2 += ' ' + str(item)
+                            if count2 < len(colon_split2):
+                                assoc_str_temp2 += 'and has '
+                            else:
+                                assoc_str_temp2 += '. '
+                    assoc_str2 = assoc_str_temp2
+                assoc_str_final += assoc_str2
+                return assoc_str_final
+        
+                
+        
+        # Function that reads in p1 directly from file and outpute a string. Has 3 outcomes depending if p1 is +, -, or 0.
+        def p1_to_str(self, counter: int):
+            p1 = str(p1_list[counter])
+            if '*' not in p1:
+                p1 = float(p1)
+                if p1 < 0:
+                    p1 = '{:.2e}'.format(p1)
+                    p1 = str(p1)
+                    return ' This pulsar has an unusual period derivative of ' + p1 + '.' + ' Because it is negative, it has no estimate of magnetic field strength or characteristic age.'
+                else:
+                    p1 = '{:.2e}'.format(p1)
+                    p1 = str(p1)
+                    return ' This pulsar has a period derivative of ' + p1 + '.'
+            else:
+                return ' PSR ' + str(psr_list[counter]).strip() + ' has no measured period derivative.'
+        
+        
+        
+        
         # This function takes the list of lists from l.load() and converts it to a string
+        # Remember, l.load() calls an init function, so by extension this function does too.
+        # It then reads in the data generated by calling those functions (which are from the law.csv files), and outputs a str.
         #    filecontents: list of comma-separated values
         #    filename: the type of pulsar quantity being dealt with eg Period, DM, year
         #    value: the index of the pulsar's information in the master list
         def laws_to_str(self, lawcontents, filename, value: str) -> str:  
             n_law = l.load(lawcontents, filename)
-            if '*' not in str(value):
-                # The following values are obtained by iterating through
-                # the list of lists generated by the load and init_gate functions.
-                for law_list in n_law:
-                    lower_bound = float(law_list[0])
-                    upper_bound = float(law_list[1])
-                    l_type = str(law_list[2].strip())
-                    l_format = int(law_list[3])
-                    l_syntax = str(law_list[4].strip())
-                    l_prefix = str(law_list[5].strip())
-                    l_unit = str(law_list[6].strip())
-                    l_factor = float(law_list[7])
-                    l_scientific = str(law_list[8]).strip()
-                    value = str(value)
-                    value = value.replace('D', 'E')
+            for law_list in n_law:
+                lower_bound = float(law_list[0])
+                upper_bound = float(law_list[1])
+                l_type = str(law_list[2].strip())
+                l_format = int(law_list[3])
+                l_syntax = str(law_list[4].strip())
+                l_prefix = str(law_list[5].strip())
+                l_unit = str(law_list[6].strip())
+                l_factor = float(law_list[7])
+                l_scientific = str(law_list[8]).strip()
+                value = str(value)
+                value = value.replace('D', 'E')
+                if '*' not in str(value):
                     if lower_bound <= float(value) < upper_bound:
                         if float(value) > 0:
                             if 'f' == l_scientific:
@@ -120,25 +290,25 @@ class Gate:
                                 format_str = '{:.' + str(l_format) + 'e}'
                                 value = format_str.format(value)
                                 value = str(value)
-                        else:
-                            value = 'None'
-                            break
-                        if float(value) > 0:
-                            if l_unit == '':
-                                return l_prefix + ' ' + l_type + ' ' + l_syntax + ' ' +  str(value).strip()
-                            else:
-                                return l_prefix + ' ' + l_type + ' ' + l_syntax + ' ' +  str(value).strip() + ' ' + l_unit
-                        else:
-                            pass
-            else:
-                pass
+                            if 'i' == l_scientific:
+                                value = float(value)
+                                value *= l_factor
+                                value = round(value, l_format)
+                                value = int(value)
+                            if float(value) > 0:
+                                if l_unit == '':
+                                    return l_prefix + ' ' + l_type + ' ' + l_syntax + ' ' +  str(value).strip()
+                                else:
+                                    return l_prefix + ' ' + l_type + ' ' + l_syntax + ' ' +  str(value).strip() + ' ' + l_unit
+                else:
+                    return 'None'
+
+                            
                 
 
-# create_csv = open('s1400.law.csv', 'w+')
+# create_csv = open('vtrans.law.csv', 'w+')
 # Load in main csv file
-df = pd.read_csv('filtered.csv',  header=None, sep='~', engine='python')
-
-xl = pd.read_excel('Surveys.xlsx', header=None, engine='python')
+df = pd.read_csv('databasev3.csv',  header=None, sep='~', engine='python')
 
 # Load in period law csv
 period_file = 'period.law.csv'
@@ -176,18 +346,32 @@ s1400_law_csv = pd.read_csv(s1400_file, header=None, sep=',', engine='python')
 survey_file = 'survey.law.csv'
 survey_law_csv = pd.read_csv(survey_file, header=None, sep=',', engine='python')
 
+# Load in dec law csv
+dec_file = 'dec.law.csv'
+dec_law_csv = pd.read_csv(dec_file, header=None, sep=',', engine='python')
+
+vtrans_file = 'vtrans.law.csv'
+vtrans_law_csv = pd.read_csv(vtrans_file, header=None, sep=',', engine='python')
+
 # Define which data column within df corresponds to data type
 psr_col = 0
 period_col = 4
 dm_col = 7
-pb_col = 13
-ecc_col = 16
-minmass_col = 19
-age_col = 24
-bsurf_col = 23
-year_col = 12
+pb_col = 12
+ecc_col = 15
+minmass_col = 18
+age_col = 23
+bsurf_col = 22
+year_col = 11
 survey_col = 10
-s1400_col = 25
+s1400_col = 24
+p1_col = 19
+vtrans_col = 51
+assoc_col = 47
+xx_col = 48
+yy_col = 49
+zz_col = 50
+dist_col = 52
 
 # Create lists of data depending on column location within df
 psr_list = df.iloc[:,psr_col]
@@ -201,6 +385,14 @@ bsurf_list = df.iloc[:,bsurf_col]
 year_list = df.iloc[:,year_col]
 survey_list = df.iloc[:,survey_col]
 s1400_list = df.iloc[:,s1400_col]
+p1_list = df.iloc[:,p1_col]
+vtrans_list = df.iloc[:,vtrans_col]
+assoc_list = df.iloc[:,assoc_col]
+xx_list = df.iloc[:,xx_col]
+yy_list = df.iloc[:,yy_col]
+zz_list = df.iloc[:,zz_col]
+dist_list = df.iloc[:,dist_col]
+
 
 # Initialize classes
 g = Gate()
@@ -215,83 +407,168 @@ print(html_start_str, file = html_file)
 
 # Main Function Loop -- Calls the functions and outputs the paragraph to a .html file.
 # If statements check whether functions return actual data. If not, the string becomes
-# empty, thus only printing if there is actual data to print.
-# Furthermore, each PSR contains a hyperlink to a descriptor webpage.
+# empty, thus only printing if there is actual data to print. The if statements also help to format the output.
+# This is when the final tweaking takes place before outputting the result.
+# Some if statements do unique things, such as the dist if statement, which actually produces a sentence by itself.
 for i in range(len(psr_list)):
 
     period_func_str = str(l.laws_to_str(period_law_csv, period_file, str(period_list[i])))
     dm_func_str = str(l.laws_to_str(dm_law_csv, dm_file, dm_list[i]))
     age_func_str = str(l.laws_to_str(age_law_csv, age_file, age_list[i]))
     bsurf_func_str = str(l.laws_to_str(bsurf_law_csv, bsurf_file, bsurf_list[i]))
-    survey_func_str = str(l.survey_law(survey_law_csv, str(survey_list[i])))
+    survey_func_str = str(l.survey_law(survey_law_csv,'normal', str(survey_list[i])))
+    survey_name = str(l.survey_law(survey_law_csv, 'name', str(survey_list[i])))
     pb_func_str = str(l.laws_to_str(pb_law_csv, pb_file, pb_list[i]))
     ecc_func_str = str(l.laws_to_str(ecc_law_csv, ecc_file, ecc_list[i]))
     minmass_func_str = str(l.laws_to_str(minmass_law_csv, minmass_file, minmass_list[i]))
     s1400_func_str = str(l.laws_to_str(s1400_law_csv, s1400_file, s1400_list[i]))
+    dec_func_str = str(l.dec_law(dec_law_csv, psr_list[i]))
+    p1_func_str = str(l.p1_to_str(i))
+    vtrans_func_str = str(l.laws_to_str(vtrans_law_csv, vtrans_file, vtrans_list[i]))
+    assoc_func_str = str(l.assoc_to_str(df, i))
     
     # PERIOD
+    
     if 'None' not in period_func_str:
-        period_str = 'PSR ' + '<a href="' + str(psr_list[i]).strip() + '.html' + '">' + str(psr_list[i]).strip() + ' </a> ' + 'is ' + period_func_str
+        if 'None' not in dm_func_str:
+            period_str = ' PSR ' + str(psr_list[i]) + ' is ' + period_func_str
+        else:
+            period_str = ' PSR ' + str(psr_list[i]) + ' is ' + period_func_str + '.'
     # DISPERSION MEASURE
     if 'None' not in dm_func_str:
         dm_str = ' and has ' + dm_func_str + '.'
-    # AGE
-    if 'None' not in age_func_str:
-        age_str = ' It is ' + age_func_str + '.'
     else:
-        age_str = ''
-    # BSURF
-    if 'None' not in bsurf_func_str:
-        bsurf_str = ' It has ' + bsurf_func_str + '.'
-    else:
-        bsurf_str = ''
-    # YEAR
-    if '*' not in str(year_list[i]):
-        if '1089806188' in str(year_list[i]):
-            year_str = ''
-        elif (survey_func_str == '') or ('None' in survey_func_str):
-            year_str = ' It was discovered in ' + str(year_list[i]) + '.'
-        else:
-            year_str = ' It was discovered in ' + str(year_list[i])
-    else:
-        year_str = ''
-    # SURVEY
-    if 'None' not in survey_func_str:
-        if year_str == '':
-            survey_str = ''
-        else:
-            survey_str = ' as part of ' + survey_func_str + '.'
-    else:
-        survey_str = ''
-    # ORBITAL PERIOD
-    if 'None' not in pb_func_str:
-        if 'None' not in ecc_func_str:
-            pb_str = ' PSR ' + psr_list[i] + 'has ' + pb_func_str
-        else:
-            pb_str = ' PSR ' + psr_list[i] + 'has ' + pb_func_str + '.'
-    else:
-        pb_str = ''
-    # ECCENTRICITY
-    if 'None' not in ecc_func_str:
-        if pb_str == '':
-            ecc_str = ' It has ' + ecc_func_str + '.'
-        else:
-            ecc_str = ' and ' + ecc_func_str + '.'
-    else:
-        ecc_str = ''
-    # MINMASS
-    if 'None' not in minmass_func_str:
-        minmass_str = ' This pulsar has ' + minmass_func_str + '.'
-    else:
-        minmass_str = ' This pulsar appears to be solitary.'
+        dm_str = ''
     # S1400
     if 'None' not in s1400_func_str:
         s1400_str = ' It is ' + s1400_func_str + '.'
     else:
         s1400_str = ''
-    print('<hr>' + '\n' + period_str + dm_str + age_str + bsurf_str + year_str + survey_str + pb_str + ecc_str + s1400_str + minmass_str, file = html_file)
-print(html_end_str, file = html_file)
+    # YEAR
+    if '*' not in str(year_list[i]):
+        if '1089806188' in str(year_list[i]):
+            year_str = ''
+        elif (survey_func_str == '') or ('None' in survey_func_str):
+            year_str = ' PSR ' + str(psr_list[i]) + ' was discovered in ' + str(year_list[i]) + '.'
+        else:
+            year_str = ' PSR ' + str(psr_list[i]) + 'was discovered in ' + str(year_list[i])
+    else:
+        year_str = ''
+    # DISTANCE
+    if '*' not in str(dist_list[i]):
+        dist = float(dist_list[i])
+        # 2 significant figures
+        dist = round(dist, 0)
+        dist = int(dist)
+        # https://ui.adsabs.harvard.edu/abs/2017ApJ...835...29Y/abstract
+        if '47Tuc' in assoc_func_str:
+            dist = 4.5
+        dist_str = ' The estimated distance to ' + str(psr_list[i]) + ' is ' + str(dist) + ' kpc. '
+    # SURVEY
+    if 'None' not in survey_func_str:
+        if year_str == '':
+            survey_str = ''
+        else:
+            survey_str = ' as part of ' + '<a href="' + 'Plotly-Links-main/survey_plots.html' + '#' + survey_name + '">' + survey_func_str + '</a>' + '.'
+    else:
+        # '<h2 id="' + survey_name + '"></h2>' +
+        survey_str = ''
+    # ORBITAL PERIOD
+    if 'None' not in pb_func_str:
+        if 'None' not in ecc_func_str:
+            pb_str = ' PSR ' + str(psr_list[i]) + pb_func_str
+        else:
+            pb_str = ' PSR ' + str(psr_list[i]) + pb_func_str + '.'
+    else:
+        pb_str = ''
+    # ECCENTRICITY
+    if 'None' not in ecc_func_str:
+        if pb_str == '':
+            ecc_str = ' PSR ' + str(psr_list[i]) + ecc_func_str + '.'
+        else:
+            ecc_str = ' and ' + ecc_func_str + '.'
+    else:
+        ecc_str = ''
+     # AGE
+    if 'None' not in age_func_str:
+        if 'PSR' in pb_str:
+            age_temp_str = ' It '
+        else:
+            age_temp_str = ' PSR ' + str(psr_list[i])
+        age_str = age_temp_str + ' is ' + age_func_str + '.'
+    else:
+        age_str = ''
+    if 'None' not in bsurf_func_str:
+    # BSURF
+        if 'PSR' not in age_str:
+            bsurf_str = ' PSR ' + str(psr_list[i]) + ' has ' + bsurf_func_str + '.'
+        else:
+            bsurf_str = ' It has ' + bsurf_func_str + '.'
+    else:
+        bsurf_str = ''
+    # MINMASS
+    if 'None' not in minmass_func_str:
+        minmass_str = ' This pulsar has ' + minmass_func_str + '.'
+    else:
+        minmass_str = ' This pulsar appears to be solitary.'
+    if 'None' not in assoc_func_str:
+        if 'extragalactic' in assoc_func_str:
+            assoc_str = 'It is ' + assoc_func_str
+        else:
+            assoc_str = assoc_func_str
+    else:
+        assoc_str = ''
+    dec_flag = False
+    if 'None' not in dec_func_str or '' == dec_func_str:
+        if s1400_str != '':
+            dec_temp_str = ' PSR ' + str(psr_list[i])
+        else:
+            dec_temp_str = ' It '
+        if 'extragalactic' in assoc_str or assoc_str == '':
+            dec_str = dec_temp_str + ' is a ' + dec_func_str + ' pulsar. '
+            dec_flag = True
+        elif '47Tuc' in assoc_str or 'and has' in assoc_str:
+            dec_str = dec_temp_str + ' is a ' + dec_func_str + ' pulsar '
+        else:
+            dec_str = dec_temp_str + ' is a ' + dec_func_str + ' pulsar with '
+    if 'None' not in vtrans_func_str:
+        if 'PSR' not in bsurf_str:
+            vtrans_str = ' PSR ' + str(psr_list[i]) + ' has ' + vtrans_func_str + '.'
+        else:
+            vtrans_str = ' It has ' + vtrans_func_str + '.'
+    else:
+        vtrans_str = ''
+    # Adjustments to end_str because assoc function is not perfect.
+    end_str = '<hr>' + '\n' + period_str + dm_str + s1400_str + dec_str + assoc_str + p1_func_str + pb_str + ecc_str + age_str + bsurf_str + vtrans_str + dist_str + minmass_str + year_str + survey_str
+    if '(47Tuc)an' in end_str:
+        end_str = end_str.replace('(47Tuc)an', '47Tuc with an')
+        if 'with 47Tuc' in end_str:
+            end_str = end_str.replace('with 47Tuc', '47Tuc')
+    if 'and has located' in end_str:
+        end_str = end_str.replace('and has located', 'located')
+    if '.an' in end_str:
+        end_str = end_str.replace('.an extragalactic pulsar located in the Small Magellanic Cloud.', ' with ')
+    if 'with and' in end_str:
+        print("WITH AND")
+        end_str = end_str.replace('with and', 'and')
+    if 'J0537-6910' in end_str or 'J0540-6919' in end_str:
+        end_str = end_str.replace('.an extragalactic pulsar located in the Large Magellanic Cloud.', ', and has ')
+        end_str = end_str.replace('It is a gamma-ray source (4FGL_J0540.3-6920), an extragalactic pulsar located in the Large Magellanic Cloud.an extragalactic pulsar located in the Large Magellanic Cloud.', 'It is an extragalactic pulsar located in the Large Magellanic Cloud, with a gamma-ray source (4FGL_J0540.3-6920) and ')
+    if 'a gamma-ray source (4FGL_J0540.3-6920), an extragalactic pulsar located in the Large Magellanic Cloud,' in end_str:
+        end_str = end_str.replace('a gamma-ray source (4FGL_J0540.3-6920), an extragalactic pulsar located in the Large Magellanic Cloud,', 'an extragalactic pulsar located in the Large Magellanic Cloud with a gamma-ray source (4FGL_J0540.3-6920)')
+    if 'and  and' in end_str:
+        end_str = end_str.replace('and and', 'and')
+    if '(?)' in end_str:
+        end_str = end_str.replace('(?)','')
+        print(end_str)
+    if ')a ' in end_str:
+        end_str = end_str.replace(')a', ') a')
+    if ')an' in end_str:
+        end_str = end_str.replace(')an', ') an')
+    print(end_str, file = html_file)
 
+print(html_end_str, file = html_file)
+html_file.close()
 
 
 
