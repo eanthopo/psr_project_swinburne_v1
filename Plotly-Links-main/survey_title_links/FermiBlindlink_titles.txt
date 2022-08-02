@@ -1,0 +1,8 @@
+https://ui.adsabs.harvard.edu/abs/2009Sci...325..840A/abstract~Detection of 16 Gamma-Ray Pulsars Through Blind Frequency Searches Using the Fermi LAT
+https://ui.adsabs.harvard.edu/abs/2010ApJ...725..571S/abstract~Eight γ-ray Pulsars Discovered in Blind Frequency Searches of Fermi LAT Data
+https://ui.adsabs.harvard.edu/abs/2011ApJS..194...17R/abstract~Precise γ-ray Timing and Radio Observations of 17 Fermi γ-ray Pulsars
+https://ui.adsabs.harvard.edu/abs/2012ApJ...744..146A/abstract~PSR J0007+7303 in the CTA1 Supernova Remnant: New Gamma-Ray Results from Two Years of Fermi Large Area Telescope Observations
+https://ui.adsabs.harvard.edu/abs/2012ApJ...744..105P/abstract~Discovery of Nine Gamma-Ray Pulsars in Fermi Large Area Telescope Data Using a New Blind Search Method
+https://ui.adsabs.harvard.edu/abs/2012ApJ...755L..20P/abstract~PSR J1838-0537: Discovery of a Young, Energetic Gamma-Ray Pulsar
+https://ui.adsabs.harvard.edu/abs/2012Sci...338.1314P/abstract~Binary Millisecond Pulsar Discovery via Gamma-Ray Pulsations
+https://ui.adsabs.harvard.edu/abs/2013ApJ...779L..11P/abstract~Einstein@Home Discovery of Four Young Gamma-Ray Pulsars in Fermi LAT Data

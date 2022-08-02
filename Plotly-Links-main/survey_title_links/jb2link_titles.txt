@@ -1,0 +1,59 @@
+https://ui.adsabs.harvard.edu/abs/1974ApJ...191L..59H/abstract~High-Sensitivity Pulsar Survey
+https://ui.adsabs.harvard.edu/abs/1975ApJ...195L..51H/abstract~Discovery of a pulsar in a binary system
+https://ui.adsabs.harvard.edu/abs/1975ApJ...201L..55H/abstract~Deep sample of new pulsars and their spatial extent in the Galaxy
+https://ui.adsabs.harvard.edu/abs/1982Natur.300..615B/abstract~millisecond pulsar
+https://ui.adsabs.harvard.edu/abs/1986Natur.322..714S/abstract~New millisecond pulsar in a binary system
+https://ui.adsabs.harvard.edu/abs/1986ApJ...311..694S/abstract~Results of Two Surveys for Fast Pulsars
+https://ui.adsabs.harvard.edu/abs/1988Natur.333..237F/abstract~Millisecond pulsar in an eclipsing binary
+https://ui.adsabs.harvard.edu/abs/1993ApJ...402L..49N/abstract~Two Newly Discovered Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1995ApJ...449..156N/abstract~Search for Fast Pulsars along the Galactic Plane
+https://ui.adsabs.harvard.edu/abs/1990IAUC.5073....1W/abstract~PSR 1257+12 and PSR 1534+12
+https://ui.adsabs.harvard.edu/abs/1991Natur.350..688W/abstract~nearby 37.9-ms radio pulsar in a relativistic binary system
+https://ui.adsabs.harvard.edu/abs/1993ApJ...412L..37C/abstract~Discovery of Two Fast-rotating Pulsars
+https://ui.adsabs.harvard.edu/abs/1993ApJ...402L..49N/abstract~Two Newly Discovered Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1993ApJ...416..182T/abstract~Search for Pulsars at High Galactic Latitudes
+https://ui.adsabs.harvard.edu/abs/1995PhDT.........5C/abstract~Search for Millisecond Pulsars.
+https://ui.adsabs.harvard.edu/abs/1995ApJ...454..826F/abstract~High Galactic Latitude Pulsar Survey of the Arecibo Sky
+https://ui.adsabs.harvard.edu/abs/1995PoAst..43..108W/abstract~Search for extrasolar planetary systems.
+https://ui.adsabs.harvard.edu/abs/1996ApJ...461..812C/abstract~Search for Millisecond Pulsars at Galactic Latitudes -50 degrees &lt; B &lt; -20 degrees
+https://ui.adsabs.harvard.edu/abs/1996ApJ...469..819C/abstract~Princeton-Arecibo Declination-Strip Survey for Millisecond Pulsars. I.
+https://ui.adsabs.harvard.edu/abs/1996ApJ...470.1103R/abstract~Survey for Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1996ApJ...456..305Z/abstract~Discovery of Three Radio Pulsars from an X-Ray--selected Sample
+https://ui.adsabs.harvard.edu/abs/1997ApJ...474..426S/abstract~The Green Bank Northern Sky Survey for Fast Pulsars
+https://ui.adsabs.harvard.edu/abs/2000ASPC..202...41M/abstract~Searching for FAST Pulsars
+https://ui.adsabs.harvard.edu/abs/2004MNRAS.350L..61C/abstract~PSR J1829+2456: a relativistic binary pulsar
+https://ui.adsabs.harvard.edu/abs/2004ApJ...600..905L/abstract~Arecibo Timing and Single-Pulse Observations of Eighteen Pulsars
+https://ui.adsabs.harvard.edu/abs/2005MNRAS.363..929C/abstract~Arecibo timing and single-pulse observations of 17 pulsars
+https://ui.adsabs.harvard.edu/abs/2005MNRAS.359.1524L/abstract~Discovery of 10 pulsars in an Arecibo drift-scan survey
+https://ui.adsabs.harvard.edu/abs/2007MNRAS.379..282L/abstract~PSR J1453+1902 and the radio luminosities of solitary versus binary millisecond pulsars
+https://ui.adsabs.harvard.edu/abs/2018MNRAS.474.2012B/abstract~No pulsar left behind - I. Timing, pulse-sequence polarimetry and emission morphology for 12 pulsars
+https://ui.adsabs.harvard.edu/abs/2006ApJ...637..446C/abstract~Arecibo Pulsar Survey Using ALFA. I. Survey Strategy and First Discoveries
+https://ui.adsabs.harvard.edu/abs/2006ApJ...640..428L/abstract~Arecibo Pulsar Survey Using ALFA. II. The Young, Highly Relativistic Binary Pulsar J1906+0746
+https://ui.adsabs.harvard.edu/abs/2008Sci...320.1309C/abstract~An Eccentric Binary Millisecond Pulsar in the Galactic Plane
+https://ui.adsabs.harvard.edu/abs/2008ApJ...682L..41H/abstract~PSR J1856+0245: Arecibo Discovery of a Young, Energetic Pulsar Coincident with the TeV γ-Ray Source HESS J1857+026
+https://ui.adsabs.harvard.edu/abs/2009ApJ...703.2259D/abstract~Arecibo Pulsar Survey Using ALFA: Probing Radio Pulsar Intermittency And Transients
+https://ui.adsabs.harvard.edu/abs/2010Sci...329.1305K/abstract~Pulsar Discovery by Global Volunteer Computing
+https://ui.adsabs.harvard.edu/abs/2011ApJ...732L...1K/abstract~Arecibo PALFA Survey and Einstein@Home: Binary Pulsar Discovery by Volunteer Computing
+https://ui.adsabs.harvard.edu/abs/2012ApJ...757...89D/abstract~Two Millisecond Pulsars Discovered by the PALFA Survey and a Shapiro Delay Measurement
+https://ui.adsabs.harvard.edu/abs/2012ApJ...757...90C/abstract~Four Highly Dispersed Millisecond Pulsars Discovered in the Arecibo PALFA Galactic Plane Survey
+https://ui.adsabs.harvard.edu/abs/2013ApJ...772...50N/abstract~Timing and Interstellar Scattering of 35 Distant Pulsars Discovered in the PALFA Survey
+https://ui.adsabs.harvard.edu/abs/2015ApJ...800..123S/abstract~Timing of Five Millisecond Pulsars Discovered in the PALFA Survey
+https://ui.adsabs.harvard.edu/abs/2015ApJ...806..140K/abstract~Einstein@Home Discovery of a PALFA Millisecond Pulsar in an Eccentric Binary Orbit
+https://ui.adsabs.harvard.edu/abs/2015ApJ...812...81L/abstract~Arecibo Pulsar Survey Using ALFA. IV. Mock Spectrometer Data Analysis, Survey Sensitivity, and the Discovery of 40 Pulsars
+https://ui.adsabs.harvard.edu/abs/2018ApJ...869..181P/abstract~PALFA Single-pulse Pipeline: New Pulsars, Rotating Radio Transients, and a Candidate Fast Radio Burst
+https://ui.adsabs.harvard.edu/abs/2019ApJ...886..148P/abstract~Eight Millisecond Pulsars Discovered in the Arecibo PALFA Survey
+https://ui.adsabs.harvard.edu/abs/2013ApJ...775...51D/abstract~Goals, Strategies and First Discoveries of AO327, the Arecibo All-sky 327 MHz Drift Pulsar Survey
+https://ui.adsabs.harvard.edu/abs/2016ApJ...821...10D/abstract~New Discoveries from the Arecibo 327 MHz Drift Pulsar Survey Radio Transient Search
+https://ui.adsabs.harvard.edu/abs/2017ApJ...851L..29M/abstract~Pulsar J1411+2551: A Low-mass Double Neutron Star System
+https://ui.adsabs.harvard.edu/abs/2019ApJ...881..166M/abstract~The Discovery of Six Recycled Pulsars from the Arecibo 327 MHz Drift-Scan Pulsar Survey
+https://ui.adsabs.harvard.edu/abs/2009Sci...325..840A/abstract~Detection of 16 Gamma-Ray Pulsars Through Blind Frequency Searches Using the Fermi LAT
+https://ui.adsabs.harvard.edu/abs/2010ApJ...725..571S/abstract~Eight γ-ray Pulsars Discovered in Blind Frequency Searches of Fermi LAT Data
+https://ui.adsabs.harvard.edu/abs/2011ApJS..194...17R/abstract~Precise γ-ray Timing and Radio Observations of 17 Fermi γ-ray Pulsars
+https://ui.adsabs.harvard.edu/abs/2012ApJ...744..146A/abstract~PSR J0007+7303 in the CTA1 Supernova Remnant: New Gamma-Ray Results from Two Years of Fermi Large Area Telescope Observations
+https://ui.adsabs.harvard.edu/abs/2012ApJ...744..105P/abstract~iscovery of Nine Gamma-Ray Pulsars in Fermi Large Area Telescope Data Using a New Blind Search Method
+https://ui.adsabs.harvard.edu/abs/2012ApJ...755L..20P/abstract~PSR J1838-0537: Discovery of a Young, Energetic Gamma-Ray Pulsar
+https://ui.adsabs.harvard.edu/abs/2012Sci...338.1314P/abstract~Binary Millisecond Pulsar Discovery via Gamma-Ray Pulsations
+https://ui.adsabs.harvard.edu/abs/2013ApJ...779L..11P/abstract~Einstein@Home Discovery of Four Young Gamma-Ray Pulsars in Fermi LAT Data
+https://ui.adsabs.harvard.edu/abs/2011ApJ...727L..16R/abstract~Three Millisecond Pulsars in Fermi LAT Unassociated Bright Sources
+https://ui.adsabs.harvard.edu/abs/2011MNRAS.414.1292K/abstract~Discovery of millisecond pulsars in radio searches of southern Fermi Large Area Telescope sources
+https://ui.adsabs.harvard.edu/abs/2011AIPC.1357...40H/abstract~350-MHz GBT Survey of 50 Faint Fermi γ-ray Sources for Radio Millisecond Pulsars

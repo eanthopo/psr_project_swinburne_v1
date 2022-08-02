@@ -1,0 +1,4 @@
+https://ui.adsabs.harvard.edu/abs/1970MNRAS.149..301D/abstract~Single-pulse search for pulsars
+https://ui.adsabs.harvard.edu/abs/1970Natur.227.1123D/abstract~Five New Pulsars
+https://ui.adsabs.harvard.edu/abs/1972Natur.240..229D/abstract~Pulsar Associated with the Supernova Remnant IC 443
+https://ui.adsabs.harvard.edu/abs/1973NPhS..244...84D/abstract~Thirteen New Pulsars

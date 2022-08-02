@@ -1,0 +1,7 @@
+https://ui.adsabs.harvard.edu/abs/2008AIPC..983..613H/abstract~The GBT350 Survey of the Northern Galactic Plane for Radio Pulsars and Transients
+https://ui.adsabs.harvard.edu/abs/2013ApJ...763...80B/abstract~The Green Bank Telescope 350 MHz Drift-scan survey. I. Survey Observations and the Discovery of 13 Pulsars
+https://ui.adsabs.harvard.edu/abs/2013ApJ...763...81L/abstract~The Green Bank Telescope 350 MHz Drift-scan Survey II: Data Analysis and the Timing of 10 New Pulsars, Including a Relativistic Binary
+https://ui.adsabs.harvard.edu/abs/2013ApJ...768...85R/abstract~The Pulsar Search Collaboratory: Discovery and Timing of Five New Pulsars
+https://ui.adsabs.harvard.edu/abs/2014Natur.505..520R/abstract~Millisecond pulsar in a stellar triple system
+https://ui.adsabs.harvard.edu/abs/2015ApJ...809...67K/abstract~Discovery and Follow-up of Rotating Radio Transients with the Green Bank and LOFAR Telescopes
+https://ui.adsabs.harvard.edu/abs/2015ApJ...805..156S/abstract~PSR J1930-1852: a Pulsar in the Widest Known Orbit around Another Neutron Star

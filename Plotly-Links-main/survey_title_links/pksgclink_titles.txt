@@ -1,0 +1,8 @@
+https://ui.adsabs.harvard.edu/abs/1990Natur.345..598M/abstract~5.75-millisecond pulsar in the globular cluster 47 Tucanae
+https://ui.adsabs.harvard.edu/abs/1991Natur.352..219M/abstract~Discovery of ten millisecond pulsars in the globular cluster 47 Tucanae
+https://ui.adsabs.harvard.edu/abs/1995MNRAS.274..547R/abstract~Millisecond pulsars in the globular cluster 47 Tucanae
+https://ui.adsabs.harvard.edu/abs/2000ApJ...535..975C/abstract~Observations of 20 Millisecond Pulsars in 47 Tucanae at 20 Centimeters
+https://ui.adsabs.harvard.edu/abs/2001ApJ...548L.171D/abstract~Discovery of Short-Period Binary Millisecond Pulsars in Four Globular Clusters
+https://ui.adsabs.harvard.edu/abs/2001ApJ...546L..25R/abstract~Binary Millisecond Pulsar in Globular Cluster NGC 6544
+https://ui.adsabs.harvard.edu/abs/2002ApJ...570L..89D/abstract~Timing of Millisecond Pulsars in NGC 6752: Evidence for a High Mass-to-Light Ratio in the Cluster Core
+https://ui.adsabs.harvard.edu/abs/2003ApJ...599..475P/abstract~Three Binary Millisecond Pulsars in NGC 6266

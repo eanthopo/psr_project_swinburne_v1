@@ -1,0 +1,9 @@
+https://ui.adsabs.harvard.edu/abs/1993Natur.361..613J/abstract~Discovery of a very bright, nearby binary millisecond pulsar
+https://ui.adsabs.harvard.edu/abs/1994ApJ...425L..41B/abstract~Discovery of Three Binary Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1994ApJ...428L..53T/abstract~Discovery of PSR J0108-1431: The Closest Known Neutron Star?
+https://ui.adsabs.harvard.edu/abs/1995ApJ...439..933L/abstract~Four New Millisecond Pulsars in the Galactic Disk
+https://ui.adsabs.harvard.edu/abs/1996MNRAS.283.1383L/abstract~Discovery of Four Binary Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1996MNRAS.279.1235M/abstract~The Parkes Southern Pulsar Survey. I. Observing and data analysis systems and initial results.
+https://ui.adsabs.harvard.edu/abs/1996ApJ...465L.119S/abstract~Probing the Eclipse Region of a Binary Millisecond Pulsar
+https://ui.adsabs.harvard.edu/abs/1997ApJ...481..386B/abstract~Discovery of Four Isolated Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1998MNRAS.295..743L/abstract~The Parkes Southern Pulsar Survey - II. Final results and population analysis

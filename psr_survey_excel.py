@@ -1,5 +1,6 @@
-# Evan Anthopoulos
+# @author: Evan Anthopoulos
 # Excel Survey Loader
+#                       Stratched Project 
 
 import pandas as pd
 # import pulsar_project_v3 as v3

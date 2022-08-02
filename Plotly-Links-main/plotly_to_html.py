@@ -80,7 +80,7 @@ ranew2 = ranew.wrap_at('180d', inplace=False)
 decnew = coord.Angle(c.dec.rad,unit=u.degree)
 
 
-fig = px.scatter(df, x="raj", y="decj", color="Available Or Not", log_x=True, log_y=True, hover_name="Name", hover_data=["raj", "decj"], color_discrete_map={"Yes": "#FA7D25", "No" : "#333"}, custom_data=["URLs"])
+fig = px.scatter(df, x="raj", y="decj", color="Available Or Not", log_x=True, log_y=True, hover_name="Name", hover_data=["raj", "decj", "Available Or Not"], color_discrete_map={"Yes": "#FA7D25", "No" : "#333"}, custom_data=["URLs"])
 # fig = px.choropleth(df, color="Available Or Not", hover_name="Name", hover_data=["raj", "decj"], color_discrete_map={"Yes": "#FA7D25", "No" : "#333"}, custom_data=["URLs"])
 # fig.update_traces(marker=dict(
 #     size=7,

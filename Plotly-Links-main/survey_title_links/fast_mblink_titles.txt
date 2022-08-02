@@ -1,0 +1,3 @@
+https://ui.adsabs.harvard.edu/abs/2021RAA....21..143P/abstract~Three pulsars discovered by FAST in the globular cluster NGC 6517 with a pulsar candidate sifting code based on dispersion measure to signal-to-noise ratio plots
+https://ui.adsabs.harvard.edu/abs/2021ApJ...915L..28P/abstract~FAST Globular Cluster Pulsar Survey: Twenty-four Pulsars Discovered in 15 Globular Clusters
+https://ui.adsabs.harvard.edu/abs/2021ApJ...921..120Y/abstract~An Eclipsing Black Widow Pulsar in NGC 6712

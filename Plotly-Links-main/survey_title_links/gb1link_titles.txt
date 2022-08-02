@@ -1,0 +1,8 @@
+https://ui.adsabs.harvard.edu/abs/1968IAUC.2100....1C/abstract~New pulsar.
+https://ui.adsabs.harvard.edu/abs/1968Natur.219..574C/abstract~Search for Pulsating Radio Sources in the Declination Range + 44° &lt; δ &lt; + 90°
+https://ui.adsabs.harvard.edu/abs/1968Sci...162.1481S/abstract~Pulsating Radio Sources near the Crab Nebula
+https://ui.adsabs.harvard.edu/abs/1968Natur.219..576H/abstract~New Pulsating Radio Source
+https://ui.adsabs.harvard.edu/abs/1969ApJ...158L.175L/abstract~Periodic Variations in Pulsar Radiation Intensity
+https://ui.adsabs.harvard.edu/abs/1973A%26A....27...67B/abstract~The Bologna 408 1VIIHz Pulsar Search
+https://ui.adsabs.harvard.edu/abs/1978ApJ...225L..31D/abstract~Parameters of 17 newly discovered pulsars in the northern sky
+https://ui.adsabs.harvard.edu/abs/1982ApJ...253L..57D/abstract~Northern hemisphere pulsar survey : a third radio pulsar in a binary system

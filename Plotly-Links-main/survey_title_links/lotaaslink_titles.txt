@@ -1,0 +1,3 @@
+https://ui.adsabs.harvard.edu/abs/2018ApJ...866...54T/abstract~LOFAR Discovery of a 23.5 s Radio Pulsar
+https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.3457M/abstract~Single-pulse classifier for the LOFAR Tied-Array All-sky Survey
+https://ui.adsabs.harvard.edu/abs/2019yCat..36260104S/abstract~VizieR Online Data Catalog: LOTAAS pulsar discoveries (Sanidas+, 2019)

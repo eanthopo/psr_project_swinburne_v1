@@ -1,0 +1,15 @@
+https://ui.adsabs.harvard.edu/abs/2010MNRAS.409..619K/abstract~The High Time Resolution Universe Pulsar Survey - I. System configuration and initial discoveries
+https://ui.adsabs.harvard.edu/abs/2010ApJ...721L..33L/abstract~Radio-loud Magnetar in X-ray Quiescence
+https://ui.adsabs.harvard.edu/abs/2010MNRAS.401.1057K/abstract~Further searches for Rotating Radio Transients in the Parkes Multi-beam Pulsar Survey
+https://ui.adsabs.harvard.edu/abs/2011Sci...333.1717B/abstract~Transformation of a Star into a Planet in a Millisecond Pulsar Binary
+https://ui.adsabs.harvard.edu/abs/2012MNRAS.419.1752K/abstract~The High Time Resolution Universe Pulsar Survey - IV. Discovery and polarimetry of millisecond pulsars
+https://ui.adsabs.harvard.edu/abs/2012MNRAS.427.1052B/abstract~The High Time Resolution Universe Pulsar Survey — VI. An artificial neural network and timing of 75 pulsars
+https://ui.adsabs.harvard.edu/abs/2013MNRAS.433..259B/abstract~The High Time Resolution Universe Pulsar Survey - VII. Discovery of five millisecond pulsars and the different luminosity properties of binary and isolated recycled pulsars
+https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.1865N/abstract~The High Time Resolution Universe pulsar survey - X. Discovery of four millisecond pulsars and updated timing solutions of a further 12
+https://ui.adsabs.harvard.edu/abs/2015MNRAS.450.2922N/abstract~The High Time Resolution Universe Pulsar Survey - XII. Galactic plane acceleration search and the discovery of 60 pulsars
+https://ui.adsabs.harvard.edu/abs/2015MNRAS.446.4019B/abstract~The High Time Resolution Universe survey - XI. Discovery of five recycled pulsars and the optical detectability of survey white dwarf companions
+https://ui.adsabs.harvard.edu/abs/2018MNRAS.475L..57C/abstract~The High Time Resolution Universe Pulsar Survey - XIII. PSR J1757-1854, the most accelerated binary pulsar
+https://ui.adsabs.harvard.edu/abs/2018MNRAS.475..469S/abstract~PSR J2322-2650 - a low-luminosity millisecond pulsar with a planetary-mass companion
+https://ui.adsabs.harvard.edu/abs/2019MNRAS.483.3673M/abstract~The High Time Resolution Universe survey - XIV. Discovery of 23 pulsars through GPU-accelerated reprocessing
+https://ui.adsabs.harvard.edu/abs/2019MNRAS.484.5791B/abstract~The High Time Resolution Universe Pulsar Survey - XV. Completion of the intermediate-latitude survey with the discovery and timing of 25 further pulsars
+https://ui.adsabs.harvard.edu/abs/2020MNRAS.493.1063C/abstract~The High Time Resolution Universe Pulsar Survey - XVI. Discovery and timing of 40 pulsars from the southern Galactic plane

@@ -1,0 +1,15 @@
+https://ui.adsabs.harvard.edu/abs/2006ApJ...637..446C/abstract~Arecibo Pulsar Survey Using ALFA. I. Survey Strategy and First Discoveries
+https://ui.adsabs.harvard.edu/abs/2006ApJ...640..428L/abstract~Arecibo Pulsar Survey Using ALFA. II. The Young, Highly Relativistic Binary Pulsar J1906+0746
+https://ui.adsabs.harvard.edu/abs/2008Sci...320.1309C/abstract~An Eccentric Binary Millisecond Pulsar in the Galactic Plane
+https://ui.adsabs.harvard.edu/abs/2008ApJ...682L..41H/abstract~PSR J1856+0245: Arecibo Discovery of a Young, Energetic Pulsar Coincident with the TeV γ-Ray Source HESS J1857+026
+https://ui.adsabs.harvard.edu/abs/2009ApJ...703.2259D/abstract~Arecibo Pulsar Survey Using ALFA: Probing Radio Pulsar Intermittency And Transients
+https://ui.adsabs.harvard.edu/abs/2010Sci...329.1305K/abstract~Pulsar Discovery by Global Volunteer Computing
+https://ui.adsabs.harvard.edu/abs/2011ApJ...732L...1K/abstract~Arecibo PALFA Survey and Einstein@Home: Binary Pulsar Discovery by Volunteer Computing
+https://ui.adsabs.harvard.edu/abs/2012ApJ...757...89D/abstract~Two Millisecond Pulsars Discovered by the PALFA Survey and a Shapiro Delay Measurement
+https://ui.adsabs.harvard.edu/abs/2012ApJ...757...90C/abstract~Four Highly Dispersed Millisecond Pulsars Discovered in the Arecibo PALFA Galactic Plane Survey
+https://ui.adsabs.harvard.edu/abs/2013ApJ...772...50N/abstract~Timing and Interstellar Scattering of 35 Distant Pulsars Discovered in the PALFA Survey
+https://ui.adsabs.harvard.edu/abs/2015ApJ...800..123S/abstract~Timing of Five Millisecond Pulsars Discovered in the PALFA Survey
+https://ui.adsabs.harvard.edu/abs/2015ApJ...806..140K/abstract~Einstein@Home Discovery of a PALFA Millisecond Pulsar in an Eccentric Binary Orbit
+https://ui.adsabs.harvard.edu/abs/2015ApJ...812...81L/abstract~Arecibo Pulsar Survey Using ALFA. IV. Mock Spectrometer Data Analysis, Survey Sensitivity, and the Discovery of 40 Pulsars
+https://ui.adsabs.harvard.edu/abs/2018ApJ...869..181P/abstract~PALFA Single-pulse Pipeline: New Pulsars, Rotating Radio Transients, and a Candidate Fast Radio Burst
+https://ui.adsabs.harvard.edu/abs/2019ApJ...886..148P/abstract~Eight Millisecond Pulsars Discovered in the Arecibo PALFA Survey

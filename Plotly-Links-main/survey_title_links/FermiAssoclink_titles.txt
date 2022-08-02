@@ -1,0 +1,17 @@
+https://ui.adsabs.harvard.edu/abs/2011ApJ...727L..16R/abstract~Three Millisecond Pulsars in Fermi LAT Unassociated Bright Sources
+https://ui.adsabs.harvard.edu/abs/2011MNRAS.414.1292K/abstract~Discovery of millisecond pulsars in radio searches of southern Fermi Large Area Telescope sources
+https://ui.adsabs.harvard.edu/abs/2011AIPC.1357...40H/abstract~350-MHz GBT Survey of 50 Faint Fermi γ-ray Sources for Radio Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/2012ApJ...746...39C/abstract~PSR J2030+3641: Radio Discovery and Gamma-Ray Study of a Middle-aged Pulsar in the Now Identified Fermi-LAT Source 1FGL J2030.0+3641
+https://ui.adsabs.harvard.edu/abs/2012MNRAS.422.1294G/abstract~Discovery of the millisecond pulsar PSR J2043+1711 in a Fermi source with the Nançay Radio Telescope
+https://ui.adsabs.harvard.edu/abs/2012ApJ...748L...2K/abstract~Five New Millisecond Pulsars from a Radio Survey of 14 Unidentified Fermi-LAT Gamma-Ray Sources
+https://ui.adsabs.harvard.edu/abs/2013MNRAS.429.1633B/abstract~Pulsar searches of Fermi unassociated sources with the Effelsberg telescope
+https://ui.adsabs.harvard.edu/abs/2015ApJ...807...18P/abstract~Gamma-Ray Timing of Redback PSR J2339-0533: Hints for Gravitational Quadrupole Moment Changes
+https://ui.adsabs.harvard.edu/abs/2016ApJ...819...34C/abstract~Six New Millisecond Pulsars from Arecibo Searches of Fermi Gamma-Ray Sources
+https://ui.adsabs.harvard.edu/abs/2016PhDT.......539S/abstract~Searching for new millisecond pulsars with the GBT in Fermi unassociated sources
+https://ui.adsabs.harvard.edu/abs/2017A%26C....18...40B/abstract~Enabling pulsar and fast transient searches using coherent dedispersion
+https://ui.adsabs.harvard.edu/abs/2018MNRAS.475..942F/abstract~An image-based search for pulsars among Fermi unassociated LAT sources
+https://ui.adsabs.harvard.edu/abs/2018ATel11584....1W/abstract~FAST's Discovery of a New Millisecond Pulsar (MSP) toward the Fermi-LAT unassociated source 3FGL J0318.1+0252
+https://ui.adsabs.harvard.edu/abs/2020arXiv200908770N/abstract~Probably Approximately Correct Explanations of Machine Learning Models via Syntax-Guided Synthesis
+https://ui.adsabs.harvard.edu/abs/2021ApJ...910..160B/abstract~Discovery and Timing of Three Millisecond Pulsars in Radio and Gamma-Rays with the Giant Metrewave Radio Telescope and Fermi Large Area Telescope
+https://ui.adsabs.harvard.edu/abs/2021cosp...43E1208T/abstract~Discovery of eleven millisecond pulsars using jerk searches on unassociated Fermi-LAT sources
+https://ui.adsabs.harvard.edu/abs/2021arXiv210610399R/abstract~Constraining dark matter microphysics with the annihilation signal from subhalos

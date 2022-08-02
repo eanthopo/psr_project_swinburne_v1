@@ -1,0 +1,6 @@
+https://ui.adsabs.harvard.edu/abs/2014ApJ...791...67S/abstract~The Green Bank Northern Celestial Cap Pulsar Survey. I. Survey Description, Data Analysis, and Initial Results
+https://ui.adsabs.harvard.edu/abs/2015ApJ...809...67K/abstract~Discovery and Follow-up of Rotating Radio Transients with the Green Bank and LOFAR Telescopes
+https://ui.adsabs.harvard.edu/abs/2018ApJ...857..131K/abstract~The Green Bank Northern Celestial Cap Pulsar Survey. II. The Discovery and Timing of 10 Pulsars
+https://ui.adsabs.harvard.edu/abs/2019ApJ...875...19A/abstract~The Green Bank North Celestial Cap Pulsar Survey. IV. Four New Timing Solutions
+https://ui.adsabs.harvard.edu/abs/2020ApJ...892...76M/abstract~The Green Bank North Celestial Cap Pulsar Survey. V. Pulsar Census and Survey Sensitivity
+https://ui.adsabs.harvard.edu/abs/2021ApJ...922...35A/abstract~The Green Bank Northern Celestial Cap Pulsar Survey. VI. Discovery and Timing of PSR J1759+5036: A Double Neutron Star Binary Pulsar

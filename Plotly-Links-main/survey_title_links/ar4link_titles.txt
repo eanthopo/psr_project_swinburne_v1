@@ -1,0 +1,20 @@
+https://ui.adsabs.harvard.edu/abs/1990IAUC.5073....1W/abstract~PSR 1257+12 and PSR 1534+12
+https://ui.adsabs.harvard.edu/abs/1991Natur.350..688W/abstract~Nearby 37.9-ms radio pulsar in a relativistic binary system
+https://ui.adsabs.harvard.edu/abs/1993ApJ...412L..37C/abstract~Discovery of Two Fast-rotating Pulsars
+https://ui.adsabs.harvard.edu/abs/1993ApJ...402L..49N/abstract~Two Newly Discovered Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1993ApJ...416..182T/abstract~Search for Pulsars at High Galactic Latitudes
+https://ui.adsabs.harvard.edu/abs/1995PhDT.........5C/abstract~Search for Millisecond Pulsars.
+https://ui.adsabs.harvard.edu/abs/1995ApJ...454..826F/abstract~High Galactic Latitude Pulsar Survey of the Arecibo Sky
+https://ui.adsabs.harvard.edu/abs/1995PoAst..43..108W/abstract~Search for extrasolar planetary systems.
+https://ui.adsabs.harvard.edu/abs/1996ApJ...461..812C/abstract~Search for Millisecond Pulsars at Galactic Latitudes -50 degrees &lt; B &lt; -20 degrees
+https://ui.adsabs.harvard.edu/abs/1996ApJ...469..819C/abstract~Princeton-Arecibo Declination-Strip Survey for Millisecond Pulsars. I.
+https://ui.adsabs.harvard.edu/abs/1996ApJ...470.1103R/abstract~Survey for Millisecond Pulsars
+https://ui.adsabs.harvard.edu/abs/1996ApJ...456..305Z/abstract~Discovery of Three Radio Pulsars from an X-Ray--selected Sample
+https://ui.adsabs.harvard.edu/abs/1997ApJ...474..426S/abstract~The Green Bank Northern Sky Survey for Fast Pulsars
+https://ui.adsabs.harvard.edu/abs/2000ASPC..202...41M/abstract~Searching for FAST Pulsars
+https://ui.adsabs.harvard.edu/abs/2004MNRAS.350L..61C/abstract~PSR J1829+2456: a relativistic binary pulsar
+https://ui.adsabs.harvard.edu/abs/2004ApJ...600..905L/abstract~Arecibo Timing and Single-Pulse Observations of Eighteen Pulsars
+https://ui.adsabs.harvard.edu/abs/2005MNRAS.363..929C/abstract~Arecibo timing and single-pulse observations of 17 pulsars
+https://ui.adsabs.harvard.edu/abs/2005MNRAS.359.1524L/abstract~Discovery of 10 pulsars in an Arecibo drift-scan survey
+https://ui.adsabs.harvard.edu/abs/2007MNRAS.379..282L/abstract~PSR J1453+1902 and the radio luminosities of solitary versus binary millisecond pulsars
+https://ui.adsabs.harvard.edu/abs/2018MNRAS.474.2012B/abstract~No pulsar left behind - I. Timing, pulse-sequence polarimetry and emission morphology for 12 pulsars

@@ -1,0 +1,4 @@
+https://ui.adsabs.harvard.edu/abs/2019SCPMA..6259508Q/abstract~The first pulsar discovered by FAST
+https://ui.adsabs.harvard.edu/abs/2019ApJ...877...55Z/abstract~PSR J1926-0652: A Pulsar with Interesting Emission Properties Discovered at FAST
+https://ui.adsabs.harvard.edu/abs/2020MNRAS.495.3515C/abstract~An in-depth investigation of 11 pulsars discovered by FAST
+https://ui.adsabs.harvard.edu/abs/2020ApJ...892L...6P/abstract~The FAST Discovery of an Eclipsing Binary Millisecond Pulsar in the Globular Cluster M92 (NGC 6341)
