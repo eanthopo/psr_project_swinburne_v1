@@ -217,18 +217,22 @@ class Gate:
         # Function that reads in p1 directly from file and outpute a string. Has 3 outcomes depending if p1 is +, -, or 0.
         def p1_to_str(self, counter: int):
             p1 = str(p1_list[counter])
+            p1_str = ''
             if '*' not in p1:
                 p1 = float(p1)
                 if p1 < 0:
                     p1 = '{:.2e}'.format(p1)
                     p1 = str(p1)
-                    return 'This pulsar has an unusual negative period derivative of ' + p1 + '.' + ' Because it is negative, it has no estimate of magnetic field strength or characteristic age.'
+                    p1_str = ' This pulsar has an unusual negative period derivative of ' + p1 + '.' + ' Because it is negative, it has no estimate of magnetic field strength or characteristic age.'
+                elif float(p1) == 0:
+                    p1_str = ' PSR ' + str(psr_list[counter]).strip() + ' has no measured period derivative.'
                 else:
                     p1 = '{:.2e}'.format(p1)
                     p1 = str(p1)
-                    return 'This pulsar has a period derivative of ' + p1 + '.'
+                    p1_str = ' This pulsar has a period derivative of ' + p1 + '.'
             else:
-                return ' PSR ' + str(psr_list[counter]).strip() + ' has no measured period derivative.'
+                p1_str = ' PSR ' + str(psr_list[counter]).strip() + ' has no measured period derivative.'
+            return p1_str
         
         
         
@@ -386,56 +390,138 @@ c.close()
     
 
 html_css_navbar_str = """
-<html>
- <head>
-  <meta name="viewport" 
-  content="width=device-width, 
-  initial-scale=1">
-  <style> 
-  body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        }
-      .topnav {
-          overflow: hidden;
-          background-color: #005CD;
-          }
-      
-      .topnav a {
-          float: left
-          color: #00C5CD
-          text-align: center;
-          padding: 30px 16px;
-          text-decoration: none;
-          font-size: 17px;
-          }
-      
-      .topnav a:hover {
-          padding: 30px 16px;
-          background-color: #005CD;
-          color: black;
-          }
-      
-      .topnav a.active {
-          background-color: #00C5CD;
-          color: white;
-          }
-      </style>
-      </head>
-      <body>
-      
-      <div class="topnav">
-      <a class="active" href="https://astronomy.swin.edu.au/~mbailes/encyc/home.html">Home</a>
-      <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/pulsars.html">Pulsars</a>
-      <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/surveys.html">Surveys</a>
-      <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/about.html">About</a>
-      </div>
-      <div style="padding-left:16px">
-      </div>
-      
-      </body>
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar-right {
+  float: right;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="https://astronomy.swin.edu.au/~mbailes/encyc/home.html">Home</a>
+  <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pulsars.html">Pulsars</a>
+  <div class="dropdown">
+    <button class="dropbtn">Surveys
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/surveys.html">Surveys Page</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar2_plots.html">2nd Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar3_plots.html">3rd Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar4_plots.html">4th Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/palfa_plots.html">Arecibo Multibeam Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar327_plots.html">Arecibo 327 MHz Drift-Scan Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/FermiBlind_plots.html">Fermi Gamma-Ray Observatory blind survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/FermiAssoc_plots.html">Searches of Unidentified Fermi gamma-ray Sources</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb1_plots.html">Green Bank Northern Hemisphere Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb2_plots.html">Princeton-NRAO Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb3_plots.html">Green Bank short-period Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb4_plots.html">Green Bank fast pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gbt350_plots.html">Green Bank 350 MHz drift-scan Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gbncc_plots.html">Green Bank North Celestial Cap Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ghrss_plots.html">GMRT High Resolution Southern Sky Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/htru_eff_plots.html">Parkes High Time Resolution Universe Survey (HTRU) - Effelsberg</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/htru_pks_plots.html">Parkes High Time Resolution Universe Survey (HTRU)</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/jb1_plots.html">Jodrell A Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/jb2_plots.html">Jodrell B Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/mol1_plots.html">1st Molonglo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/mol2_plots.html">2nd Molonglo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks1_plots.html">Parkes 20-cm Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks70_plots.html">Parkes Southern Sky Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkshl_plots.html">Parkes high-latitude multibeam pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksgc_plots.html">Parkes globular cluster Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksmb_plots.html">Parkes multibeam pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkssw_plots.html">Parkes Swinburne intermediate latitude pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkspa_plots.html">Parkes Perseus Arm multibeam Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksngp_plots.html">Parkes deep northern Galactic Plane Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks_superb_plots.html">Parkes survey for pulsars and extragalactic radio bursts</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/lotaas_plots.html">LOFAR Tied Array All-sky Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_uwb_plots.html">FAST UWB Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_gpps_plots.html">FAST GPPS Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/chime_plots.html">CHIME Pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/meerkat_trapum_plots.html">MeerKAT TRAPUM survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_mb_plots.html">FAST 19-beam L-Band survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/misc_plots.html">Several Minor Surveys (misc)</a>
+      </div>
+    </div>
+
+  <div class="navbar-right">
+    <a href="https://astronomy.swin.edu.au/~mbailes/encyc/about.html">About</a>
+    </div>
+  </div> 
+</div>
 """
+
 html_header_str = '<center>\n<h1>The Radio Pulsars</h1>\n</center>\n'
 padding_str = """
 <style>
@@ -534,9 +620,7 @@ for i in range(len(psr_list)):
     # DISTANCE
     if '*' not in str(dist_list[i]):
         dist = float(dist_list[i])
-        # 2 significant figures
-        dist = round(dist, 0)
-        dist = int(dist)
+        
         # For globular clusters
         if '47Tuc' in assoc_func_str:
             dist = 4.5
@@ -605,8 +689,12 @@ for i in range(len(psr_list)):
         elif 'Ter5' in assoc_func_str:
             dist = 6.9
         elif 'NGC6342' in assoc_func_str:
-            dist = 8.5
-        dist_str = ' The estimated distance to ' + str(psr_list[i]) + ' is ' + str(dist) + ' kpc. '
+            dist = 8.5         
+        dist = int(float(dist) * 1000)
+        if float(dist) < 15000:
+            dist_str = ' The estimated distance to ' + str(psr_list[i]).strip() + ' is ' + str(dist) + ' pc. '
+        else:
+            dist_str = ' The YMD distance model suggests that the distance to ' + str(psr_list[i]).strip() + ' is ' + str(dist) + ' pc, but that is suspicious. '
     # SURVEY
     if 'None' not in survey_func_str:
         if year_str == '':
@@ -650,9 +738,15 @@ for i in range(len(psr_list)):
         bsurf_str = ''
     # MINMASS
     if 'None' not in minmass_func_str:
-        minmass_str = ' This pulsar has ' + minmass_func_str + '.'
+        if '*' not in str(dist_list[i]):
+            minmass_str = 'This pulsar has ' + minmass_func_str + '.'
+        else:
+            minmass_str = ' This pulsar has ' + minmass_func_str + '.'
     else:
-        minmass_str = ' This pulsar appears to be solitary.'
+        if '*' not in str(dist_list[i]):
+            minmass_str = 'This pulsar appears to be solitary.'
+        else:
+            minmass_str = ' This pulsar appears to be solitary.'
     if 'None' not in assoc_func_str:
         if 'extragalactic' in assoc_func_str:
             assoc_str = 'It is ' + assoc_func_str

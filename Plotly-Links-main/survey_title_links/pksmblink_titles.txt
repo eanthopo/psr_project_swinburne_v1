@@ -11,7 +11,7 @@ https://ui.adsabs.harvard.edu/abs/2003MNRAS.342.1299K/abstract~The Parkes Multib
 https://ui.adsabs.harvard.edu/abs/2003ApJ...591L.135M/abstract~PSR J1847-0130: A Radio Pulsar with Magnetar Spin Characteristics
 https://ui.adsabs.harvard.edu/abs/2004MNRAS.352.1439H/abstract~The Parkes multibeam pulsar survey - IV. Discovery of 180 pulsars and parameters for 281 previously known pulsars
 https://ui.adsabs.harvard.edu/abs/2004MNRAS.355..147F/abstract~The Parkes Multibeam Pulsar Survey - V. Finding binary and millisecond pulsars
-https://ui.adsabs.harvard.edu/abs/2005ApJ...632.1060S/abstract~iscovery of Three Wide-Orbit Binary Pulsars: Implications for Binary Evolution and Equivalence Principles
+https://ui.adsabs.harvard.edu/abs/2005ApJ...632.1060S/abstract~Discovery of Three Wide-Orbit Binary Pulsars: Implications for Binary Evolution and Equivalence Principles
 https://ui.adsabs.harvard.edu/abs/2006MNRAS.372..777L/abstract~The Parkes Multibeam Pulsar Survey - VI. Discovery and timing of 142 pulsars and a Galactic population analysis
 https://ui.adsabs.harvard.edu/abs/2006Natur.439..817M/abstract~Transient radio bursts from rotating neutron stars
 https://ui.adsabs.harvard.edu/abs/2009MNRAS.395..837K/abstract~Discovery of 28 pulsars using new techniques for sorting pulsar candidates

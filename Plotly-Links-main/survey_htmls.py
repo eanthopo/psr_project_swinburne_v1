@@ -10,6 +10,7 @@ import astropy.coordinates as coord
 from pandas import DataFrame
 import re
 from plotly.offline import plot
+import numpy as np
 
 class Survey:
     
@@ -328,14 +329,7 @@ class Survey:
                               projection="mollweide" # size of markers, "pop" is one of the columns of gapminder
                              )
         fig.update_geos(showframe=True, visible=False, lonaxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'), lataxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'))
-        # fig.update_xaxes(anchor='free')
-        # fig.update_layout(
-        # xaxis={'anchor': 'free',
-        #        'range': [1,100],
-        #        'ticks': 'outside'},
-        # yaxis={'rangemode': 'tozero',
-        #        'ticks': 'outside'})
-        # fig.update_xaxes({'layout': {'geo': {'domain':{'x': [360, 0], 'y': [-90, 90]}}}})
+        # fig.update_geos(projection_rotation_roll=180)
         fig.update_traces(marker=dict(size=4))
         fig.show()
         
@@ -393,16 +387,18 @@ class Survey:
             else:
                 gl.append('null')
                 gb.append('null')
+                
                         
         source = {
             'Name': clickable,
             'gl': gl,
             'gb': gb,
+            # 'gl_p': gl_p,
             'Legend (gl vs gb)': det_disc_list,
             'Available PSR': available_or_not,
             "URLs": psr_links
         }
-        # print(df_psr_list[600], gl[600], gb[600])
+
         dafr = DataFrame(data=source)
         fig = px.scatter_geo(dafr, lon='gl', lat='gb', color="Legend (gl vs gb)", width=1000, height=500, title='Pulsars discovered by ' + survey_name + ' in Galactic Coordinates', hover_name="Name", color_discrete_map={"PSRs Discovered - Click to View / Hide": "#FF0000", "PSRs Detected - Click to View / Hide": "#228B22", "All Known Pulsars in MeerTime" : "#BFEFFF", "All Known Pulsars - Click to View / Hide": "#B0B0B0"}, custom_data=["URLs"],
                               projection="mollweide" # size of markers, "pop" is one of the columns of gapminder
@@ -410,7 +406,6 @@ class Survey:
         fig.update_geos(showframe=True, visible=False, lonaxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'), lataxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'))
         fig.update_traces(marker=dict(size=4))
         fig.show()
-
         plot_div = plot(fig, output_type='div', include_plotlyjs=True)
 
         res = re.search('<div id="([^"]*)"', plot_div)
@@ -794,214 +789,6 @@ class Survey:
                 return 'None'
         else:
             print('<center>' + html_str + '</center>', file = html_file) 
-    
-    
-    
-    # def test_3D(self, counter: int):
-    #     quantity_support()
-    #     survey_name = str(survey_name_list[counter]).strip()
-    #     psrs_available_cleaned = []
-    #     psr_links = []
-    #     xx = []
-    #     yy = []
-    #     zz = []
-    #     jname = []
-    #     jnames_cleaned = []
-    #     available_or_not = []
-    #     clickable = []
-    #     survey_data = []
-    #     det_disc_list = det_disc_real
-    #     for i in range(len(df_psr_list)):
-    #         xx_temp = str(xx_list[i]).strip()
-    #         yy_temp = str(yy_list[i]).strip()
-    #         zz_temp = str(zz_list[i]).strip()
-    #         if '*' not in str(xx_list[i]) and '*' not in str(yy_list[i]) and '*' not in str(zz_list[i]):
-    #             jname = str(jnames_list[i].strip())
-    #             jnames_cleaned.append(jname)
-    #             survey_p = str(df_survey_list[i]).strip()
-    #             survey_data.append(survey_p)
-    #             xx.append(xx_temp)
-    #             yy.append(yy_temp)
-    #             zz.append(zz_temp)
-    #     for i in range(len(psrs_available)):
-    #         psr = str(psrs_available[i]).strip()
-    #         psrs_available_cleaned.append(psr)
-    #     for jname in jnames_cleaned:
-    #         if psrs_available_cleaned.count(jname) > 0:
-    #             available_or_not.append("Yes")
-    #             psr_link = url_template + jname
-    #             psr_links.append(psr_link)
-    #         else:
-    #             available_or_not.append("No")
-    #             psr_links.append('null')
-    #     for i in range(len(available_or_not)):
-    #         if str(available_or_not[i]).strip() == 'Yes':
-    #             jname_temp = jnames_cleaned[i]
-    #             clickable.append(jname_temp + ':   Click on this pulsar to be taken to the MeerTime portal.')
-    #         elif str(available_or_not[i]).strip() == 'No':
-    #             jname_temp = jnames_cleaned[i]
-    #             clickable.append(jname_temp + ':   This pulsar is not clickable.')
-                
-    #     source = {
-    #         'Name': clickable,
-    #         'x-distance (kpc)': xx,
-    #         'y-distance (kpc)': yy,
-    #         'z-distance (kpc)': zz,
-    #         'Legend (x vs y vs z)': det_disc_list,
-    #         'survey': survey_data,
-    #         "URLs": psr_links
-    #     }
-
-    #     dafr = DataFrame(data=source)
-    #     fig = px.scatter_3d(dafr, x='x-distance (kpc)', y='y-distance (kpc)', z='z-distance (kpc)', color="Legend (x vs y vs z)", width=1000, height=500, title='x-distance' + ' vs y-distance' + ' vs z-distance for the ' + survey_name, hover_name="Name", color_discrete_map={"PSRs Discovered - Click to View / Hide": "#FF0000", "PSRs Detected - Click to View / Hide": "#228B22", "All Known Pulsars - Click to View / Hide" : "#B0B0B0", "All Known Pulsars in MeerTime" : "#BFEFFF"}, custom_data=["URLs"]
-    #                           # size of markers, "pop" is one of the columns of gapminder
-    #                          )
-
-    #     fig.update_layout(autotypenumbers='convert types')
-    #     fig.update_traces(marker=dict(size=4))
-    #     fig.show()
-        
-    #     plot_div = plot(fig, output_type='div', include_plotlyjs=True)
-
-    #     res = re.search('<div id="([^"]*)"', plot_div)
-    #     div_id = res.groups()[0]
-
-    #     js_callback = """
-    #     <script>
-    #     var plot_element = document.getElementById("{div_id}");
-    #     plot_element.on('plotly_click', function(data){{
-    #         console.log(data);
-    #         var point = data.points[0];
-    #         if (point) {{
-    #             if (point.customdata.toString() != 'null') {{
-    #                 console.log(point.customdata);
-    #                 window.open(point.customdata);
-    #             }}
-    #         }}
-    #     }})
-    #     </script>
-    #     """.format(div_id=div_id)
-
-    #     # Build HTML string
-    #     html_str = """
-    #            {plot_div}
-    #            {js_callback}
-    #     """.format(plot_div=plot_div, js_callback=js_callback)
-
-    #     # Write out HTML file
-    #     if len(detected) == 0 and len(discovered) == 0:
-    #             return 'None'
-    #     else:
-    #         print('<center>' + html_str + '</center>', file = html_file)
-    
-    
-    
-    # def bsurf_pb(self, counter: int):
-    #     survey_name = str(survey_name_list[counter]).strip()
-    #     psrs_available_cleaned = []
-    #     psr_links = []
-    #     bsurf = []
-    #     p0 = []
-    #     jname = []
-    #     jnames_cleaned = []
-    #     available_or_not = []
-    #     survey_data = []
-    #     clickable = []
-    #     det_disc_list = det_disc_real
-    #     for i in range(len(df_psr_list)):
-    #         bsurf_temp = str(bsurf_list[i]).strip()
-    #         p0_temp = str(df_period_list[i]).strip()
-    #         if '*' not in bsurf_temp and '*' not in p0_temp:
-    #             bsurf.append(bsurf_temp)
-    #             p0.append(p0_temp)
-    #             jname = str(jnames_list[i].strip())
-    #             jnames_cleaned.append(jname)
-    #             survey_p = str(df_survey_list[i]).strip()
-    #             survey_data.append(survey_p)
-    #         else:
-    #             bsurf.append('null')
-    #             p0.append('null')
-    #             jname = str(jnames_list[i].strip())
-    #             jnames_cleaned.append(jname)
-    #             survey_p = str(df_survey_list[i]).strip()
-    #             survey_data.append(survey_p)
-    #     for i in range(len(psrs_available)):
-    #         psr = str(psrs_available[i]).strip()
-    #         psrs_available_cleaned.append(psr)
-    #     for jname in jnames_cleaned:
-    #         if psrs_available_cleaned.count(jname) > 0:
-    #             available_or_not.append("Yes")
-    #             psr_link = url_template + jname
-    #             psr_links.append(psr_link)
-    #         else:
-    #             available_or_not.append("No")
-    #             psr_links.append('null')
-    #     for i in range(len(available_or_not)):
-    #         if str(available_or_not[i]).strip() == 'Yes':
-    #             jname_temp = jnames_cleaned[i]
-    #             clickable.append(jname_temp + ':   Click on this pulsar to be taken to the MeerTime portal.')
-    #         elif str(available_or_not[i]).strip() == 'No':
-    #             jname_temp = jnames_cleaned[i]
-    #             clickable.append(jname_temp + ':   This pulsar is not clickable.')
-    #     source = {
-    #         'Name': jnames_cleaned,
-    #         'Magnetic Field Strength (G)': bsurf,
-    #         'p0': p0,
-    #         'Clickable': clickable,
-    #         'Legend (Magnetic Field Strength (G) vs Spin Period (s))': det_disc_list,
-    #         'URLs': psr_links
-    #     }
-        
-    #     print(len(bsurf),len(p0),len(jnames_cleaned),len(det_disc_list),len(psr_links),'ok')
-    #     dafr = DataFrame(data=source)
-    #     fig = px.scatter(dafr, x='p0', y='Magnetic Field Strength (G)', color="Legend (Magnetic Field Strength (G) vs Spin Period (s))",log_x=True, log_y=True, width=1000, height=500, title='Magnetic Field Strength vs Spin Period for the ' + survey_name, hover_name="Clickable", color_discrete_map={"PSRs Discovered - Click to View / Hide": "#FF0000", "All Known Pulsars in MeerTime": "#BFEFFF", "All Known Pulsars - Click to View / Hide": "#B0B0B0", "PSRs Detected - Click to View / Hide": "#228B22"}, custom_data=["URLs"]
-    #                           # size of markers, "pop" is one of the columns of gapminder
-    #                           )
-    #     fig.update_layout(autotypenumbers='convert types')
-    #     fig.update_traces(marker=dict(size=4))
-    #     fig.update_layout(
-    #     xaxis={'title': 'Spin Period (s)', 'showexponent': 'all', 'exponentformat': 'e', 'rangemode': 'tozero',
-    #            'ticks': 'outside'},
-    #     yaxis={'title': 'Magnetic Field Strength (G)', 'showexponent': 'all', 'exponentformat': 'e', 'rangemode': 'tozero',
-    #            'ticks': 'outside'},)
-    #     fig.show()
-        
-    #     plot_div = plot(fig, output_type='div', include_plotlyjs=True)
-
-    #     res = re.search('<div id="([^"]*)"', plot_div)
-    #     div_id = res.groups()[0]
-
-    #     js_callback = """
-    #     <script>
-    #     var plot_element = document.getElementById("{div_id}");
-    #     plot_element.on('plotly_click', function(data){{
-    #         console.log(data);
-    #         var point = data.points[0];
-    #         if (point) {{
-    #             if (point.customdata.toString() != 'null') {{
-    #                 console.log(point.customdata);
-    #                 window.open(point.customdata);
-    #             }}
-    #         }}
-    #     }})
-    #     </script>
-    #     """.format(div_id=div_id)
-
-    #     # Build HTML string
-    #     html_str = """
-    #             {plot_div}
-    #             {js_callback}
-    #     """.format(plot_div=plot_div, js_callback=js_callback)
-
-    #     # Write out HTML file
-    #     # with open('survey_plots.html', 'w+') as f:
-    #     #f.write(html_file)
-    #     if len(detected) == 0 and len(discovered) == 0:
-    #             return 'None'
-    #     else:
-    #         print('<center>\n' + html_str + '</center>\n', file = html_file)
-
-
 
 
 
@@ -1088,55 +875,136 @@ for j in range(len(xl_survey_list)):
     survey2 = str(xl_survey_list[j]).strip()
     survey_name = str(survey_name_list[j]).strip()
     html_css_navbar_str = """
-    <html>
-     <head>
-      <meta name="viewport" 
-      content="width=device-width, 
-      initial-scale=1">
-      <style> 
-      body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            }
-          .topnav {
-              overflow: hidden;
-              background-color: #005CD;
-              }
-          
-          .topnav a {
-              float: left
-              color: #00C5CD
-              text-align: center;
-              padding: 30px 16px;
-              text-decoration: none;
-              font-size: 17px;
-              }
-          
-          .topnav a:hover {
-              padding: 30px 16px;
-              background-color: #005CD;
-              color: black;
-              }
-          
-          .topnav a.active {
-              background-color: #00C5CD;
-              color: white;
-              }
-          </style>
-          </head>
-          <body>
-          
-          <div class="topnav">
-          <a class="active" href="https://astronomy.swin.edu.au/~mbailes/encyc/home.html">Home</a>
-          <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/pulsars.html">Pulsars</a>
-          <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/surveys.html">Surveys</a>
-          <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/about.html">About</a>
+        <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar-right {
+      float: right;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;  
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: red;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    </style>
+    </head>
+    <body>
+
+    <div class="navbar">
+      <a href="https://astronomy.swin.edu.au/~mbailes/encyc/home.html">Home</a>
+      <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pulsars.html">Pulsars</a>
+      <div class="dropdown">
+        <button class="dropbtn">Surveys
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/surveys.html">Surveys Page</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar2_plots.html">2nd Arecibo Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar3_plots.html">3rd Arecibo Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar4_plots.html">4th Arecibo Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/palfa_plots.html">Arecibo Multibeam Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar327_plots.html">Arecibo 327 MHz Drift-Scan Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/FermiBlind_plots.html">Fermi Gamma-Ray Observatory blind survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/FermiAssoc_plots.html">Searches of Unidentified Fermi gamma-ray Sources</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb1_plots.html">Green Bank Northern Hemisphere Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb2_plots.html">Princeton-NRAO Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb3_plots.html">Green Bank short-period Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb4_plots.html">Green Bank fast pulsar Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gbt350_plots.html">Green Bank 350 MHz drift-scan Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gbncc_plots.html">Green Bank North Celestial Cap Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ghrss_plots.html">GMRT High Resolution Southern Sky Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/htru_eff_plots.html">Parkes High Time Resolution Universe Survey (HTRU) - Effelsberg</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/htru_pks_plots.html">Parkes High Time Resolution Universe Survey (HTRU)</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/jb1_plots.html">Jodrell A Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/jb2_plots.html">Jodrell B Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/mol1_plots.html">1st Molonglo Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/mol2_plots.html">2nd Molonglo Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks1_plots.html">Parkes 20-cm Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks70_plots.html">Parkes Southern Sky Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkshl_plots.html">Parkes high-latitude multibeam pulsar Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksgc_plots.html">Parkes globular cluster Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksmb_plots.html">Parkes multibeam pulsar Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkssw_plots.html">Parkes Swinburne intermediate latitude pulsar Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkspa_plots.html">Parkes Perseus Arm multibeam Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksngp_plots.html">Parkes deep northern Galactic Plane Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks_superb_plots.html">Parkes survey for pulsars and extragalactic radio bursts</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/lotaas_plots.html">LOFAR Tied Array All-sky Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_uwb_plots.html">FAST UWB Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_gpps_plots.html">FAST GPPS Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/chime_plots.html">CHIME Pulsar Survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/meerkat_trapum_plots.html">MeerKAT TRAPUM survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_mb_plots.html">FAST 19-beam L-Band survey</a>
+            <a href="https://astronomy.swin.edu.au/~mbailes/encyc/misc_plots.html">Several Minor Surveys (misc)</a>
           </div>
-          <div style="padding-left:16px">
-          </div>
-          
-          </body>
-    
+        </div>
+
+      <div class="navbar-right">
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/about.html">About</a>
+        </div>
+      </div> 
+    </div>
     """
     html_style_str = '<html>\n' + '<style> h1 {text-align: center;} </style>'
     html_header_str = html_style_str + '<h1>' + survey_name + '</h1>'
@@ -1248,9 +1116,23 @@ for j in range(len(xl_survey_list)):
                     pb_temp += ' ' + pb_unit_yr
             else:
                 pb_temp = '*'
-            if '*' not in str(ecc_list[index]):
-                ecc_temp = str(ecc_list[index]).strip()
-                ecc_temp = str(round(float(ecc_temp), 3)).strip()
+            if '*' not in str(ecc_list[index]) and float(str(ecc_list[index]).strip()) != 0:
+                ecc_temp = str(ecc_list[index]).replace('D', 'e')
+                if 'e' in ecc_temp:
+                    ecc_temp = str(ecc_list[index]).strip()
+                else:
+                    if 0 < float(ecc_temp) < 0.1:
+                        ecc_temp = "{:2e}".format(float(ecc_temp))
+                        if len(str(ecc_temp)) > 5:
+                            ecc_temp_start = ecc_temp[:3]
+                            ecc_temp_e = ecc_temp[-4:]
+                            ecc_temp = str(ecc_temp_start) + str(ecc_temp_e)
+                        else:
+                            ecc_temp = str(ecc_temp)
+                    elif float(ecc_temp) ==0:
+                        ecc_temp = '*'
+                    else:
+                        ecc_temp = str(round(float(ecc_temp), 3))
             else:
                 ecc_temp = '*'
             pb_disc_bin.append(pb_temp)
@@ -1343,8 +1225,23 @@ for j in range(len(xl_survey_list)):
                     pb_temp += ' ' + pb_unit_yr
             else:
                 pb_temp = '*'
-            if '*' not in str(ecc_list[index]):
-                ecc_temp = str(ecc_list[index]).strip()
+            if '*' not in str(ecc_list[index]) and float(str(ecc_list[index]).strip()) != 0:
+                ecc_temp = str(ecc_list[index]).replace('D', 'e')
+                if 'e' in ecc_temp:
+                    ecc_temp = str(ecc_list[index]).strip()
+                else:
+                    if 0 < float(ecc_temp) < 0.1:
+                        ecc_temp = "{:2e}".format(float(ecc_temp))
+                        if len(str(ecc_temp)) > 5:
+                            ecc_temp_start = ecc_temp[:3]
+                            ecc_temp_e = ecc_temp[-4:]
+                            ecc_temp = str(ecc_temp_start) + str(ecc_temp_e)
+                        else:
+                            ecc_temp = str(ecc_temp)
+                    elif float(ecc_temp) ==0:
+                        ecc_temp = '*'
+                    else:
+                        ecc_temp = str(round(float(ecc_temp), 3))
             else:
                 ecc_temp = '*'
             pb_det_bin.append(pb_temp)
@@ -1458,14 +1355,12 @@ for j in range(len(xl_survey_list)):
         print('\n\n\n\n\n' + '\n', file = html_file)
         print(html_end_str, file = html_file)
         s_plots = s.raj_decj_plot(xl, df, j, html_file)
-        # bsurf_pb = s.bsurf_pb(j)
         g_plots = s.plotly_gl_gb(xl, df, j, html_file)
         p_pdot = s.p_pdot(j)
         yy_xx_zoomed = s.yy_xx_zoomed(xl, df, j, html_file)
         yy_xx_reg = s.yy_xx_reg(xl, df, j, html_file)
         zz_xx_zoomed = s.zz_xx_zoomed(xl, df, j, html_file)
         zz_xx_reg = s.zz_xx_reg(xl, df, j, html_file)
-        # xx_yy_zz = s.test_3D(j)
         print(table_disc_contents_str, file = html_file)
         print(table_disc_bin_contents_str, file = html_file)
         print(table_det_contents_str, file = html_file)

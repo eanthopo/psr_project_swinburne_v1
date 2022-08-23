@@ -76,13 +76,12 @@ class Home:
             "URLs": psr_links
         }
         dafr = DataFrame(data=source)
-        fig = px.scatter_geo(dafr, lon='raj', lat='decj', labels=dict(lat='raj (rad)', lon='decj(deg)'), color="Legend (RA (J2000) vs Dec (J2000))", width=1000, height=500, title='All Known Pulsars in Equatorial Coordinates', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#FFA500"}, custom_data=["URLs"],
+        fig = px.scatter_geo(dafr, lon='raj', lat='decj', labels=dict(lat='raj (rad)', lon='decj(deg)'), color="Legend (RA (J2000) vs Dec (J2000))", width=1000, height=500, title='All Known Pulsars in Equatorial Coordinates', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#00CD00"}, custom_data=["URLs"],
                               projection="mollweide" # size of markers, "pop" is one of the columns of gapminder
                              )
         fig.update_geos(showframe=True, visible=False, lonaxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'), lataxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'))
         fig.update_traces(marker=dict(size=4))
         fig.update_xaxes(title_text='raj (rad)')
-        fig.update_xaxes(range=[360,-360])
         fig.update_yaxes(title_text='decj (deg)')
         fig.show()
 
@@ -145,7 +144,7 @@ class Home:
         }
         
         dafr = DataFrame(data=source)
-        fig = px.scatter_geo(dafr, lon='gb', lat='gl', labels=dict(lat='gl', lon='gb'), color="Legend (Galactic Latitude vs Galactic Longitude)", width=1000, height=500, title='All Known Pulsars in Galactic Coordinates', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#FFA500"}, custom_data=["URLs"],
+        fig = px.scatter_geo(dafr, lon='gb', lat='gl', labels=dict(lat='gl', lon='gb'), color="Legend (Galactic Latitude vs Galactic Longitude)", width=1000, height=500, title='All Known Pulsars in Galactic Coordinates', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#00CD00"}, custom_data=["URLs"],
                               projection="mollweide" # size of markers, "pop" is one of the columns of gapminder
                              )
         fig.update_geos(showframe=True, visible=False, lonaxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'), lataxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'))
@@ -211,7 +210,7 @@ class Home:
             "URLs": psr_links
         }
         dafr = DataFrame(data=source)
-        fig = px.scatter(dafr, x='Spin Period (s)', y='Period Derivative (s/s)', log_x=True, log_y=True, color="Legend (Spin Period (s) vs Period Derivative (s/s))", width=1000, height=500, title='Spin Period (s) vs Period Derivative (s/s)', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#FFA500"}, custom_data=["URLs"],
+        fig = px.scatter(dafr, x='Spin Period (s)', y='Period Derivative (s/s)', log_x=True, log_y=True, color="Legend (Spin Period (s) vs Period Derivative (s/s))", width=1000, height=500, title='Spin Period (s) vs Period Derivative (s/s)', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#00CD00"}, custom_data=["URLs"],
                               # size of markers, "pop" is one of the columns of gapminder
                              )
         fig.update_geos(showframe=True, visible=False, lonaxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'), lataxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'))
@@ -284,7 +283,7 @@ class Home:
         }
         
         dafr = DataFrame(data=source)
-        fig = px.scatter(dafr, x='x-distance (kpc)', y='y-distance (kpc)', color="Legend (x-distance (kpc) vs y-distance (kpc))", width=1000, height=500, title='x-distance (kpc) vs y-distance (kpc) (Our Sun is at x=8.5 kpc, y=0.0 kpc)', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#FFA500"}, custom_data=["URLs"],
+        fig = px.scatter(dafr, x='x-distance (kpc)', y='y-distance (kpc)', color="Legend (x-distance (kpc) vs y-distance (kpc))", width=1000, height=500, title='x-distance (kpc) vs y-distance (kpc) (Our Sun is at x=0.0 kpc, y=8.5 kpc)', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#00CD00"}, custom_data=["URLs"],
                               # size of markers, "pop" is one of the columns of gapminder
                              )
         fig.update_geos(showframe=True, visible=False, lonaxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'), lataxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'))
@@ -326,38 +325,38 @@ class Home:
     def xx_zz_plt(self):
         psrs_available_cleaned = []
         psr_links = []
-        xx = []
+        yy = []
         zz = []
         clickable = plotly_load[0]
         det_disc_list = plotly_load[1]
         available_or_not = plotly_load[2]
         psr_links = plotly_load[3]
         for i in range(len(jname_list)):
-            xx_temp = str(xx_list[i]).strip()
+            yy_temp = str(yy_list[i]).strip()
             zz_temp = str(zz_list[i]).strip()
-            if '*' not in str(xx_list[i]) and '*' not in str(zz_list[i]):
-                xx.append(xx_temp)
+            if '*' not in str(yy_list[i]) and '*' not in str(zz_list[i]):
+                yy.append(yy_temp)
                 zz.append(zz_temp)
             else:
-                xx.append('null')
+                yy.append('null')
                 zz.append('null')
         source = {
             'Name': clickable,
-            'x-distance (kpc)': xx,
+            'y-distance (kpc)': yy,
             'z-distance (kpc)': zz,
-            'Legend (x-distance (kpc) vs z-distance (kpc))': det_disc_list,
+            'Legend (y-distance (kpc) vs z-distance (kpc))': det_disc_list,
             'Available PSR': available_or_not,
             "URLs": psr_links
         }
         
         dafr = DataFrame(data=source)
-        fig = px.scatter(dafr, x='x-distance (kpc)', y='z-distance (kpc)', color="Legend (x-distance (kpc) vs z-distance (kpc))", width=1000, height=500, title='x-distance (kpc) vs z-distance (kpc) (Zoomed In)', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#FFA500"}, custom_data=["URLs"],
+        fig = px.scatter(dafr, x='y-distance (kpc)', y='z-distance (kpc)', color="Legend (y-distance (kpc) vs z-distance (kpc))", width=1000, height=500, title='y-distance (kpc) vs z-distance (kpc)', hover_name="Name", color_discrete_map={"All Known Pulsars in MeerTime - Click to View / Hide" : "#1C86EE", "All Known Pulsars - Click to View / Hide": "#00CD00"}, custom_data=["URLs"],
                               # size of markers, "pop" is one of the columns of gapminder
                              )
         fig.update_geos(showframe=True, visible=False, lonaxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'), lataxis=dict(showgrid=True, gridwidth=0.9, gridcolor='rgb(102, 102, 102)'))
         fig.update_layout(autotypenumbers='convert types')
-        fig.update_xaxes(range=[-10, 15])
-        fig.update_yaxes(range=[-2, 2])
+        # fig.update_xaxes(range=[-10, 15])
+        # fig.update_yaxes(range=[-2, 2])
         fig.update_traces(marker=dict(size=4))
         fig.show()
    
@@ -481,55 +480,136 @@ else:
 psr_difference = 3320 - gc_count - exgal_count
 
 html_css_navbar_str = """
-<html>
- <head>
-  <meta name="viewport" 
-  content="width=device-width, 
-  initial-scale=1">
-  <style> 
-  body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        }
-      .topnav {
-          overflow: hidden;
-          background-color: #005CD;
-          }
-      
-      .topnav a {
-          float: left
-          color: #00C5CD
-          text-align: center;
-          padding: 30px 16px;
-          text-decoration: none;
-          font-size: 17px;
-          }
-      
-      .topnav a:hover {
-          padding: 30px 16px;
-          background-color: #005CD;
-          color: black;
-          }
-      
-      .topnav a.active {
-          background-color: #00C5CD;
-          color: white;
-          }
-      </style>
-      </head>
-      <body>
-      
-      <div class="topnav">
-      <a class="active" href="https://astronomy.swin.edu.au/~mbailes/encyc/home.html">Home</a>
-      <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/pulsars.html">Pulsars</a>
-      <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/surveys.html">Surveys</a>
-      <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/about.html">About</a>
-      </div>
-      <div style="padding-left:16px">
-      </div>
-      
-      </body>
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar-right {
+  float: right;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="https://astronomy.swin.edu.au/~mbailes/encyc/home.html">Home</a>
+  <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pulsars.html">Pulsars</a>
+  <div class="dropdown">
+    <button class="dropbtn">Surveys
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/surveys.html">Surveys Page</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar2_plots.html">2nd Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar3_plots.html">3rd Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar4_plots.html">4th Arecibo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/palfa_plots.html">Arecibo Multibeam Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar327_plots.html">Arecibo 327 MHz Drift-Scan Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/FermiBlind_plots.html">Fermi Gamma-Ray Observatory blind survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/FermiAssoc_plots.html">Searches of Unidentified Fermi gamma-ray Sources</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb1_plots.html">Green Bank Northern Hemisphere Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb2_plots.html">Princeton-NRAO Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb3_plots.html">Green Bank short-period Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gb4_plots.html">Green Bank fast pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gbt350_plots.html">Green Bank 350 MHz drift-scan Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/gbncc_plots.html">Green Bank North Celestial Cap Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ghrss_plots.html">GMRT High Resolution Southern Sky Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/htru_eff_plots.html">Parkes High Time Resolution Universe Survey (HTRU) - Effelsberg</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/htru_pks_plots.html">Parkes High Time Resolution Universe Survey (HTRU)</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/jb1_plots.html">Jodrell A Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/jb2_plots.html">Jodrell B Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/mol1_plots.html">1st Molonglo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/mol2_plots.html">2nd Molonglo Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks1_plots.html">Parkes 20-cm Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks70_plots.html">Parkes Southern Sky Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkshl_plots.html">Parkes high-latitude multibeam pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksgc_plots.html">Parkes globular cluster Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksmb_plots.html">Parkes multibeam pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkssw_plots.html">Parkes Swinburne intermediate latitude pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pkspa_plots.html">Parkes Perseus Arm multibeam Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pksngp_plots.html">Parkes deep northern Galactic Plane Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/pks_superb_plots.html">Parkes survey for pulsars and extragalactic radio bursts</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/lotaas_plots.html">LOFAR Tied Array All-sky Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_uwb_plots.html">FAST UWB Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_gpps_plots.html">FAST GPPS Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/chime_plots.html">CHIME Pulsar Survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/meerkat_trapum_plots.html">MeerKAT TRAPUM survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fast_mb_plots.html">FAST 19-beam L-Band survey</a>
+        <a href="https://astronomy.swin.edu.au/~mbailes/encyc/misc_plots.html">Several Minor Surveys (misc)</a>
+      </div>
+    </div>
+
+  <div class="navbar-right">
+    <a href="https://astronomy.swin.edu.au/~mbailes/encyc/about.html">About</a>
+    </div>
+  </div> 
+</div>
 """
 html_header_str = '<center><body><h1> Welcome to the Swinburne Encyclopedia of Radio Pulsar Astronomy!</h1>\n</center>\n'
 html_paragraph_one = """<style>
@@ -550,7 +630,7 @@ html_paragraph_one = """<style>
 html_paragraph_two = """ <p class="indent-all">
 
   In the plots below it is often possible to click on a particular pulsar, and
-  be taken to the pulsar portal to see real obser vations of it. For now
+  be taken to the pulsar portal to see real observations of it. For now
   only observations from SARAO's MeerTime project are available for viewing.
 
   <br>"""
@@ -634,6 +714,139 @@ print('Done')
 
 
 
+# <html>
+#  <head>
+#   <meta name="viewport" 
+#   content="width=device-width, 
+#   initial-scale=1">
+#   <style> 
+#   body {
+#         margin: 0;
+#         font-family: Arial, Helvetica, sans-serif;
+#         }
+#       .navbar {
+#           overflow: hidden;
+#           background-color: #005CD;
+#           }
+      
+#       .navbar a {
+#           float: left
+#           color: #00C5CD
+#           text-align: center;
+#           padding: 30px 16px;
+#           text-decoration: none;
+#           font-size: 17px;
+#           }
+      
+#       .dropdown .dropbtn {
+#           font-size: 16px;  
+#           border: none;
+#           outline: none;
+#           color: white;
+#           padding: 14px 16px;
+#           background-color: inherit;
+#           font-family: inherit;
+#          margin: 0;
+#           }
+      
+#       .navbar a:hover, .dropdown:hover .dropbtn {
+#         background-color: white;
+#         }
+      
+#       .dropdown-content {
+#         display: none;
+#         position: absolute;
+#         background-color: #f9f9f9;
+#         min-width: 160px;
+#         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+#         z-index: 1;
+#       }
+      
+#       .dropdown-content a {
+#         float: none;
+#         color: black;
+#         padding: 12px 16px;
+#         text-decoration: none;
+#         display: block;
+#         text-align: left;
+#     }
+      
+#       .dropdown-content a:hover {
+#         background-color: #ddd;
+#         }
+      
+#       .dropdown:hover .dropdown-content {
+#         display: block;
+#         }
+      
+      
+#       .navbar a:hover {
+#           padding: 30px 16px;
+#           background-color: #005CD;
+#           color: black;
+#           }
+      
+#       .navbar a.active {
+#           background-color: #00C5CD;
+#           color: white;
+#           }
+#       </style>
+#       </head>
+#       <body>
+      
+#       <div class="navbar">
+#       <a class="active" href="https://astronomy.swin.edu.au/~mbailes/encyc/home.html">Home</a>
+#       <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/pulsars.html">Pulsars</a>
+#       <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/surveys.html">Surveys</a>
+#       <a target="_blank" href="https://astronomy.swin.edu.au/~mbailes/encyc/about.html">About</a>
+#       <div class="surveys">
+#        <button class="dropbtn">Surveys 
+#         <i class="fa fa-caret-down"></i>
+#        </button>
+#        <div class="dropdown-content">
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar2_plots.html">2nd Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar3_plots.html">3rd Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar4_plots.html">4th Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/palfa_plots.html">Arecibo Multibeam Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar327_plots.html">Arecibo 327 MHz Drift-Scan Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/fermiblind_plots.html">Fermi Gamma-Ray Observatory blind survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+        # <a href="https://astronomy.swin.edu.au/~mbailes/encyc/ar1_plots.html">1st Arecibo Survey</a>
+#        </div>
+#       </div>
+#       <div style="padding-left:16px">
+#       </div>
+      
+#       </body>
 
 
 
